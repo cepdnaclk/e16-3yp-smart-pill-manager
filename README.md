@@ -17,3 +17,6 @@ You can find our blog in
    https://smart-pill-manager.blogspot.com
 	
 Thank you!	
+
+hellooo how are you
+im fine thank you
