@@ -7,7 +7,7 @@ E/16/061 - Chandula JPDM
 E/16/203 - Lakshan SAI       
 E/16/261 - Nuwantha BLA      
 
-exciting things will be added soon!! keep in touch
+exciting things will be dropping soon!! keep in touch
 
 You can find our blog in
    https://smart-pill-manager.blogspot.com
