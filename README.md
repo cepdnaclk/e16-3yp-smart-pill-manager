@@ -18,5 +18,3 @@ You can find our blog in
 	
 Thank you!	
 
-hellooo how are you
-im fine thank you
