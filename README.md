@@ -1,5 +1,6 @@
 # e16-3yp-smart-pill-manager
-CO321 project repository by Group 7
+
+# CO321 project repository by Group 7
 
 exciting things will be added soon!! keep in touch
 
