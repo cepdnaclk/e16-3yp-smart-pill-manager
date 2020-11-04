@@ -1,15 +1,18 @@
 # e16-3yp-smart-pill-manager
 
-## CO321 project repository by Team 7
+### CO321 project repository by Team 7
 
 ## Team members
 
-> [Chandula J.P.D.M](https://github.com/Chandula-JPDM) **E/16/061**
+>[Chandula J.P.D.M](https://github.com/Chandula-JPDM) **E/16/061**
 
 >[Lakshan S.A.I](https://github.com/IsuruLakshan97) **E/16/203**
 
 >[Nuwantha B.L.A](https://github.com/arunanuwantha97) **E/16/261**
-     
+
+## Product design     
+
+![Product image](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/tree/main/Design%20Photos)  
 
 exciting things will be dropping soon!! keep in touch
 
