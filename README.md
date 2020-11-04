@@ -14,7 +14,7 @@
 
 ![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Design_image.png)  
 
-## Table of content
+## Table of contents
 
 1. >[Problem](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager#problem)
 2. >[Our solution](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager#our-solution)
@@ -61,13 +61,39 @@ So we design this project to address the most common two issues raised by the pe
  1. Being forgetful
  2. hard to read prescriptions due to poor vision
 
-# Our solution
-# Solution Architecture
-# Hardware & Software Designs
-# Testing
-# Detailed budget
-# Conclusion
-# GitHub Repo Link
+## Our solution
+
+To address before mentioned issues we designed a Device Which Alerts the patients at the right time to take the pills and Inform Which amount they need to take….
+
+This device is designed with following added features,
+            
+      1. Fingerprint Authentication
+      2. Medication Tracking
+      3. Multiuser facility
+      4. Audio & Visual Alerts
+      5. Battery backup 
+      6. Pill Refill reminder
+      7. RFID bracelet Authentication
+
+by this proposed product,
+
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/pie_chart02.png)
+
+**We could solve 92.8% of issues raised by the people.**
+
+### Solution overview
+- Add prescription details from the web application using a smartphone/laptop
+- Add medicine into the device according to prescription added in web application
+- The device will send pill taken information(PTI:- whether the pills were taken or not) to the server
+- You can take medicine from the device at the prescribed time
+- Receive pill taken information via email 
+
+## Solution Architecture
+## Hardware & Software Designs
+## Testing
+## Detailed budget
+## Conclusion
+## GitHub Repo Link
 
 exciting things will be dropping soon!! keep in touch
 
