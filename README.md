@@ -12,7 +12,7 @@
 
 ## Product design     
 
-![Product image](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/tree/main/Design%20Photos)  
+![Product image](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/tree/main/Design%20Photos/Design_image.png)  
 
 exciting things will be dropping soon!! keep in touch
 
