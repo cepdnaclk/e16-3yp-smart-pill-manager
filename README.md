@@ -16,7 +16,7 @@
 
 ## Table of content
 
-1. >[Problem]()
+1. >[Problem](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager#problem)
 2. >[Our solution]()
 3. >[Solution Architecture]()
 4. >[Hardware & Software Designs]()
@@ -61,6 +61,13 @@ So we design this project to address the most common two issues raised by the pe
  1. Being forgetful
  2. hard to read prescriptions due to poor vision
 
+# Our solution
+# Solution Architecture
+# Hardware & Software Designs
+# Testing
+# Detailed budget
+# Conclusion
+# GitHub Repo Link
 
 exciting things will be dropping soon!! keep in touch
 
