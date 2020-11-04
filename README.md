@@ -16,5 +16,8 @@ exciting things will be dropping soon!! keep in touch
 You can find our blog in
    https://smart-pill-manager.blogspot.com
 	
+Our Project Planning Workspace
+   https://lucid.app/invitations/accept/3a6530d0-3f07-40d5-863b-07752b5b9d80
+   
 Thank you!	
 
