@@ -17,13 +17,13 @@
 ## Table of content
 
 1. >[Problem](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager#problem)
-2. >[Our solution]()
-3. >[Solution Architecture]()
-4. >[Hardware & Software Designs]()
-5. >[Testing]()
-6. >[Detailed budget]()
-7. >[Conclusion]()
-8. >[GitHub Repo Link]()
+2. >[Our solution](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager#our-solution)
+3. >[Solution Architecture](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager#solution-architecture)
+4. >[Hardware & Software Designs](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager#hardware--software-designs)
+5. >[Testing](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager#testing)
+6. >[Detailed budget](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager#detailed-budget)
+7. >[Conclusion](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager#conclusion)
+8. >[GitHub Repo Link](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager#github-repo-link)
 
 ## Problem
 
