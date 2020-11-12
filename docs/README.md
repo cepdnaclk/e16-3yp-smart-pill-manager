@@ -9,9 +9,9 @@ A project of third year students developing a smart pill manager device for the 
 
 
 ## Links
-* [University of Peradeniya](https://www.pdn.ac.lk/)
-* [Faculty of Engineering, University of Peradeniya](https://eng.pdn.ac.lk/) 
-* [Department of Computer Engineering, Faculty of Engineering, University of Peradeniya](http://www.ce.pdn.ac.lk/) 
+* ![University of Peradeniya](https://www.pdn.ac.lk/)
+* ![Faculty of Engineering, University of Peradeniya](https://eng.pdn.ac.lk/) 
+* ![Department of Computer Engineering, Faculty of Engineering, University of Peradeniya](http://www.ce.pdn.ac.lk/) 
 
 
 # Introduction
@@ -46,7 +46,7 @@ We astonished! We asked why?...
          designing a solution we did a survey and found following issues
          associated with this.
 
-![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/docs/img/pie_chart01.png)
+![image](https://user-images.githubusercontent.com/62101791/98900562-09bf4d00-24d8-11eb-8433-b8214ef2645a.png)
 
 So we design this project to address the most common two issues raised by the people.
  1. Being forgetful
@@ -68,7 +68,10 @@ This device is designed with following added features,
 
 by this proposed product,
 
-![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/docs/img/pie_chart02.png)
+
+![piechart2](https://user-images.githubusercontent.com/62101791/98900672-41c69000-24d8-11eb-81c0-312e94df8ad2.png)
+
+
 
 **We could solve 92.8% of issues raised by the people.**
 
@@ -80,7 +83,7 @@ by this proposed product,
 - Receive pill taken information via email 
 
 ## Product design     
-![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/docs/img/Design_image.png) 
+![design view](https://user-images.githubusercontent.com/62101791/98900733-63277c00-24d8-11eb-8a57-8d0e04eda2ba.png)
 
 ## Hardware Design
 ![image](https://user-images.githubusercontent.com/62101791/98899693-193d9680-24d6-11eb-8de5-6e527fdf8a40.png)
