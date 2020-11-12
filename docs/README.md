@@ -46,7 +46,7 @@ We astonished! We asked why?...
          designing a solution we did a survey and found following issues
          associated with this.
 
-![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/pie_chart01.png)
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/docs/img/pie_chart01.png)
 
 So we design this project to address the most common two issues raised by the people.
  1. Being forgetful
@@ -68,7 +68,7 @@ This device is designed with following added features,
 
 by this proposed product,
 
-![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/pie_chart02.png)
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/docs/img/pie_chart02.png)
 
 **We could solve 92.8% of issues raised by the people.**
 
@@ -80,13 +80,12 @@ by this proposed product,
 - Receive pill taken information via email 
 
 ## Product design     
-![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Design_image.png) 
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/docs/img/Design_image.png) 
 
-## Solution Architecture
-## Hardware & Software Designs
-## Testing
+## Hardware Design
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/docs/img/Circuit.jpg)
+
 ## Detailed budget
-## Conclusion
 
 ## Advising Lecturers 
   - Dr. Isuru Nawinne
