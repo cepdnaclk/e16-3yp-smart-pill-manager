@@ -1,4 +1,4 @@
-# e16-3yp-smart-pill-manager
+# Smart Pill Manager
 A project of third year students developing a smart pill manager device for the family.
 
 ## Group Members
@@ -46,13 +46,13 @@ We astonished! We asked why?...
          designing a solution we did a survey and found following issues
          associated with this.
 
-![image](https://user-images.githubusercontent.com/62101791/98900562-09bf4d00-24d8-11eb-8433-b8214ef2645a.png)
+ ![piechart01](https://user-images.githubusercontent.com/62101791/98900562-09bf4d00-24d8-11eb-8433-b8214ef2645a.png)
 
 So we design this project to address the most common two issues raised by the people.
  1. Being forgetful
  2. hard to read prescriptions due to poor vision
  
- ## Our solution
+## Our solution
 
 To address before mentioned issues we designed a Device Which Alerts the patients at the right time to take the pills and Inform Which amount they need to take….
 
@@ -69,7 +69,7 @@ This device is designed with following added features,
 by this proposed product,
 
 
-![piechart2](https://user-images.githubusercontent.com/62101791/98900672-41c69000-24d8-11eb-81c0-312e94df8ad2.png)
+ ![piechart2](https://user-images.githubusercontent.com/62101791/98900672-41c69000-24d8-11eb-81c0-312e94df8ad2.png)
 
 
 
@@ -83,10 +83,10 @@ by this proposed product,
 - Receive pill taken information via email 
 
 ## Product design     
-![design view](https://user-images.githubusercontent.com/62101791/98900733-63277c00-24d8-11eb-8a57-8d0e04eda2ba.png)
+ ![design view](https://user-images.githubusercontent.com/62101791/98900733-63277c00-24d8-11eb-8a57-8d0e04eda2ba.png)
 
 ## Hardware Design
-![image](https://user-images.githubusercontent.com/62101791/98899693-193d9680-24d6-11eb-8de5-6e527fdf8a40.png)
+ ![image](https://user-images.githubusercontent.com/62101791/98899693-193d9680-24d6-11eb-8de5-6e527fdf8a40.png)
 
 
 ## Detailed budget
