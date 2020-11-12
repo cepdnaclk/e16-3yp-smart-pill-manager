@@ -83,7 +83,8 @@ by this proposed product,
 ![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/docs/img/Design_image.png) 
 
 ## Hardware Design
-![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/docs/img/Circuit.jpg)
+![image](https://user-images.githubusercontent.com/62101791/98899693-193d9680-24d6-11eb-8de5-6e527fdf8a40.png)
+
 
 ## Detailed budget
 
