@@ -90,7 +90,7 @@ by this proposed product,
 
 
 ## Detailed budget
-
+ ![image](https://user-images.githubusercontent.com/62101791/99028989-4f8f1a80-2597-11eb-8458-ebadf6f5ae63.png)
 ## Advising Lecturers 
   - Dr. Isuru Nawinne
   - Dr. Ziyan Maraikar
