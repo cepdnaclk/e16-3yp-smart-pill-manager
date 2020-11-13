@@ -8,12 +8,6 @@ A project of third year students developing a smart pill manager device for the 
 - Nuwantha B.L.A     - E/16/261 - e16261@eng.pdn.ac.lk
 
 
-## Links
-* ![University of Peradeniya](https://www.pdn.ac.lk/)
-* ![Faculty of Engineering, University of Peradeniya](https://eng.pdn.ac.lk/) 
-* ![Department of Computer Engineering, Faculty of Engineering, University of Peradeniya](http://www.ce.pdn.ac.lk/) 
-
-
 # Introduction
 
 ## Problem
@@ -82,6 +76,10 @@ by this proposed product,
 - You can take medicine from the device at the prescribed time
 - Receive pill taken information via email 
 
+## Solution Architecture
+![image](https://user-images.githubusercontent.com/62101791/99034636-a6025600-25a3-11eb-9ae2-b8e9c589fec0.png)
+
+
 ## Product design     
  ![design view](https://user-images.githubusercontent.com/62101791/98900733-63277c00-24d8-11eb-8a57-8d0e04eda2ba.png)
 
@@ -94,6 +92,11 @@ by this proposed product,
 ## Advising Lecturers 
   - Dr. Isuru Nawinne
   - Dr. Ziyan Maraikar
+
+## Links
+* ![University of Peradeniya](https://www.pdn.ac.lk/)
+* ![Faculty of Engineering, University of Peradeniya](https://eng.pdn.ac.lk/) 
+* ![Department of Computer Engineering, Faculty of Engineering, University of Peradeniya](http://www.ce.pdn.ac.lk/) 
 
 ## GitHub Repo Link
   *[Access our github repository](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/)
