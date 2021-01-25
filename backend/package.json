@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "12.14.0"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +16,7 @@
   "dependencies": {
     "bcrypt": "^5.0.0",
     "config": "^3.3.3",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "joi": "^17.3.0",
     "jsonwebtoken": "^8.5.1",

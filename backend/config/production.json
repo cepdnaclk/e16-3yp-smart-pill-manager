@@ -1,0 +1,4 @@
+{
+  "name": "spm-production",
+  "db": "mongodb+srv://spm-user:1234@cluster0.pps0b.mongodb.net/spmdb?retryWrites=true&w=majority"
+}
