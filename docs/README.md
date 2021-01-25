@@ -1,4 +1,4 @@
-# e16-3yp-smart-pill-manager
+# Smart Pill Manager
 A project of third year students developing a smart pill manager device for the family.
 
 ## Group Members
@@ -6,12 +6,6 @@ A project of third year students developing a smart pill manager device for the 
 - Chandula J.P.D.M   - E/16/061 - e16061@eng.pdn.ac.lk
 - Lakshan S.A.I      - E/16/203 - e16203@eng.pdn.ac.lk
 - Nuwantha B.L.A     - E/16/261 - e16261@eng.pdn.ac.lk
-
-
-## Links
-* [University of Peradeniya](https://www.pdn.ac.lk/)
-* [Faculty of Engineering, University of Peradeniya](https://eng.pdn.ac.lk/) 
-* [Department of Computer Engineering, Faculty of Engineering, University of Peradeniya](http://www.ce.pdn.ac.lk/) 
 
 
 # Introduction
@@ -46,13 +40,13 @@ We astonished! We asked why?...
          designing a solution we did a survey and found following issues
          associated with this.
 
-![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/pie_chart01.png)
+ ![piechart01](https://user-images.githubusercontent.com/62101791/98900562-09bf4d00-24d8-11eb-8433-b8214ef2645a.png)
 
 So we design this project to address the most common two issues raised by the people.
  1. Being forgetful
  2. hard to read prescriptions due to poor vision
  
- ## Our solution
+## Our solution
 
 To address before mentioned issues we designed a Device Which Alerts the patients at the right time to take the pills and Inform Which amount they need to take….
 
@@ -68,7 +62,10 @@ This device is designed with following added features,
 
 by this proposed product,
 
-![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/pie_chart02.png)
+
+ ![piechart2](https://user-images.githubusercontent.com/62101791/98900672-41c69000-24d8-11eb-81c0-312e94df8ad2.png)
+
+
 
 **We could solve 92.8% of issues raised by the people.**
 
@@ -79,18 +76,27 @@ by this proposed product,
 - You can take medicine from the device at the prescribed time
 - Receive pill taken information via email 
 
-## Product design     
-![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Design_image.png) 
-
 ## Solution Architecture
-## Hardware & Software Designs
-## Testing
-## Detailed budget
-## Conclusion
+![image](https://user-images.githubusercontent.com/62101791/99034636-a6025600-25a3-11eb-9ae2-b8e9c589fec0.png)
 
+
+## Product design     
+ ![design view](https://user-images.githubusercontent.com/62101791/98900733-63277c00-24d8-11eb-8a57-8d0e04eda2ba.png)
+
+## Hardware Design
+ ![image](https://user-images.githubusercontent.com/62101791/98899693-193d9680-24d6-11eb-8de5-6e527fdf8a40.png)
+
+
+## Detailed budget
+ ![image](https://user-images.githubusercontent.com/62101791/99028989-4f8f1a80-2597-11eb-8458-ebadf6f5ae63.png)
 ## Advising Lecturers 
   - Dr. Isuru Nawinne
   - Dr. Ziyan Maraikar
+
+## Links
+* ![University of Peradeniya](https://www.pdn.ac.lk/)
+* ![Faculty of Engineering, University of Peradeniya](https://eng.pdn.ac.lk/) 
+* ![Department of Computer Engineering, Faculty of Engineering, University of Peradeniya](http://www.ce.pdn.ac.lk/) 
 
 ## GitHub Repo Link
   *[Access our github repository](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/)
