@@ -1,0 +1,4 @@
+{
+  "name": "spm-development",
+  "db": "mongodb://localhost/project"
+}

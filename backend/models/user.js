@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const Joi = require("joi");
 const { patientSchema } = require("./patient");
+const { containerSchema } = require("./container");
 
 const userSchema = new mongoose.Schema({
   deviceID: {
@@ -25,6 +26,10 @@ const userSchema = new mongoose.Schema({
     type: [patientSchema],
   },
 
+  containers: {
+    type: [containerSchema],
+  },
+
   password: {
     type: String,
     required: true,
@@ -34,7 +39,7 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.generateAuthToken = function () {
-  const token = jwt.sign({ deviceID: this.deviceID }, "jwtPrivateKey");
+  const token = jwt.sign({ deviceID: this.deviceID, username: this.username, email:this.email }, "jwtPrivateKey");
   return token;
 };
 
