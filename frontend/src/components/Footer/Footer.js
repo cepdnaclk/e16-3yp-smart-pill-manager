@@ -11,7 +11,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "components/CustomButtons/Button.js";
 
 // @material-ui/icons
-import Favorite from "@material-ui/icons/Favorite";
+import { Favorite, Facebook, Twitter, GitHub } from "@material-ui/icons";
 
 import styles from "assets/jss/material-kit-react/components/footerStyle.js";
 
@@ -46,18 +46,17 @@ export default function Footer(props) {
             <ListItem className={classes.inlineBlock}>
               <div className={classes.textCenter + " " + classes.sharingArea}>
                 <Button size="sm" color="twitter">
-                  <i className={classes.socials + " fab fa-twitter"} /> Tweet
+                  <Twitter /> Tweet
                 </Button>
                 <Button size="sm" color="facebook">
-                  <i className={classes.socials + " fab fa-facebook-square"} />{" "}
-                  Share
+                  <Facebook /> Share
                 </Button>
                 <Button size="sm" color="google">
                   <i className={classes.socials + " fab fa-google-plus-g"} />
                   Share
                 </Button>
                 <Button size="sm" color="github">
-                  <i className={classes.socials + " fab fa-github"} />
+                  <GitHub /> Star+
                 </Button>
               </div>
             </ListItem>
