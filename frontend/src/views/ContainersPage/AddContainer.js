@@ -2,7 +2,6 @@ import React from "react";
 
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { addPatients } from "../../services/patientService";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -21,6 +20,7 @@ import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 
 import CustomInput from "components/CustomInput/CustomInput";
+import PatientSelect from "./PatientSelect";
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/javascriptStyles.js";
 
@@ -38,7 +38,7 @@ export default function AddContainer() {
 
   const validationSchema = Yup.object().shape({
     containerID: Yup.number().min(1).max(12).required(),
-    patientName: Yup.string().required().min(2).max(50),
+    patientID: Yup.string().required().min(2).max(50),
     medicine: Yup.string().required(),
     endDate: Yup.date().required(),
     routine: Yup.string(),
@@ -100,7 +100,7 @@ export default function AddContainer() {
                 >
                   <Formik
                     initialValues={{
-                      patientName: "",
+                      patientID: "",
                       containerID: 0,
                       medicine: "",
                       startDate: "",
@@ -111,18 +111,11 @@ export default function AddContainer() {
                     onSubmit={handleSubmit}
                     validationSchema={validationSchema}
                   >
-                    {({ handleChange, handleSubmit }) => (
+                    {({ handleChange, handleSubmit, values }) => (
                       <form>
-                        <CustomInput
-                          labelText="Patient Name..."
-                          id="patientName"
-                          formControlProps={{
-                            fullWidth: true,
-                          }}
-                          inputProps={{
-                            type: "text",
-                            onChange: handleChange("patientName"),
-                          }}
+                        <PatientSelect
+                          onChange={handleChange("patientID")}
+                          value={values.patientID}
                         />
                         <CustomInput
                           labelText="Container Number..."
