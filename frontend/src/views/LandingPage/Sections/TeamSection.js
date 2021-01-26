@@ -16,9 +16,9 @@ import CardFooter from "components/Card/CardFooter.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/teamStyle.js";
 
-import team1 from "assets/img/faces/avatar.jpg";
-import team2 from "assets/img/faces/christian.jpg";
-import team3 from "assets/img/faces/kendall.jpg";
+import team1 from "assets/img/faces/Team1.jpg";
+import team2 from "assets/img/faces/Team2.jpg";
+import team3 from "assets/img/faces/Team3.jpg";
 
 const useStyles = makeStyles(styles);
 
@@ -40,16 +40,13 @@ export default function TeamSection() {
                 <img src={team1} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                Gigi Hadid
+                J.P.D.M Chandula
                 <br />
-                <small className={classes.smallTitle}>Model</small>
+                <small className={classes.smallTitle}>Co-Founder</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#pablo">links</a> for people to be able to
-                  follow them outside the site.
+                  Fuck', I think. What a beautiful word. If I could say only one thing for the rest of my life, that would be it. 
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
@@ -83,16 +80,13 @@ export default function TeamSection() {
                 <img src={team2} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                Christian Louboutin
+                Aruna Nuwantha
                 <br />
-                <small className={classes.smallTitle}>Designer</small>
+                <small className={classes.smallTitle}>Co-Founder</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#pablo">links</a> for people to be able to
-                  follow them outside the site.
+                 Well I haven't fucked much in the past, But I will fuck plenty in the future. 
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
@@ -100,8 +94,9 @@ export default function TeamSection() {
                   justIcon
                   color="transparent"
                   className={classes.margin5}
+                  href="https://www.facebook.com/nuwantha.97"
                 >
-                  <i className={classes.socials + " fab fa-twitter"} />
+                  <i className={classes.socials + " fab fa-facebook"}/>
                 </Button>
                 <Button
                   justIcon
@@ -119,16 +114,13 @@ export default function TeamSection() {
                 <img src={team3} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                Kendall Jenner
+                Isuru Lakshan
                 <br />
-                <small className={classes.smallTitle}>Model</small>
+                <small className={classes.smallTitle}>Co-Founder</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#pablo">links</a> for people to be able to
-                  follow them outside the site.
+                   I like the word 'fuck'. The word means what it means, but it also means whatever you need it to mean
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
@@ -150,6 +142,7 @@ export default function TeamSection() {
                   justIcon
                   color="transparent"
                   className={classes.margin5}
+                  href="https://www.facebook.com/isuru.lakshan.58323431/"
                 >
                   <i className={classes.socials + " fab fa-facebook"} />
                 </Button>
