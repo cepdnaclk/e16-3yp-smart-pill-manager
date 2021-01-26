@@ -37,13 +37,18 @@ export default function AddContainer() {
   const [classicModal, setClassicModal] = React.useState(false);
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required(),
-    age: Yup.number().required(),
+    containerID: Yup.number().min(1).max(12).required(),
+    patientName: Yup.string().required().min(2).max(50),
+    medicine: Yup.string().required(),
+    endDate: Yup.date().required(),
+    routine: Yup.string(),
+    noOfPills: Yup.number(),
   });
 
-  const handleSubmit = async ({ name, age }) => {
-    await addPatients(name, age);
-    window.location = "/containers";
+  const handleSubmit = (containerInfo) => {
+    // await addPatients(name, age);
+    // window.location = "/containers";
+    console.log(containerInfo);
     setClassicModal(false);
   };
 
@@ -53,7 +58,11 @@ export default function AddContainer() {
         <GridItem xs={12} sm={12} md={6}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6} lg={4}>
-              <Button color="info" block onClick={() => setClassicModal(true)}>
+              <Button
+                color="danger"
+                block
+                onClick={() => setClassicModal(true)}
+              >
                 <LibraryBooks className={classes.icon} />
                 Add Container
               </Button>
@@ -90,7 +99,15 @@ export default function AddContainer() {
                   className={classes.modalBody}
                 >
                   <Formik
-                    initialValues={{ name: "", age: "" }}
+                    initialValues={{
+                      patientName: "",
+                      containerID: 0,
+                      medicine: "",
+                      startDate: "",
+                      endDate: "",
+                      routine: "",
+                      noOfPills: 0,
+                    }}
                     onSubmit={handleSubmit}
                     validationSchema={validationSchema}
                   >
@@ -98,29 +115,89 @@ export default function AddContainer() {
                       <form>
                         <CustomInput
                           labelText="Patient Name..."
-                          id="name"
+                          id="patientName"
                           formControlProps={{
                             fullWidth: true,
                           }}
                           inputProps={{
                             type: "text",
-                            onChange: handleChange("name"),
+                            onChange: handleChange("patientName"),
                           }}
                         />
                         <CustomInput
-                          labelText="No. of Pills..."
-                          id="age"
+                          labelText="Container Number..."
+                          id="containerID"
                           formControlProps={{
                             fullWidth: true,
                           }}
                           inputProps={{
                             type: "text",
-                            onChange: handleChange("age"),
+                            onChange: handleChange("containerID"),
                             autoComplete: "off",
                           }}
                         />
-                        <Button color="info" onClick={handleSubmit}>
-                          Add
+                        <CustomInput
+                          labelText="Medicine Name..."
+                          id="medicine"
+                          formControlProps={{
+                            fullWidth: true,
+                          }}
+                          inputProps={{
+                            type: "text",
+                            onChange: handleChange("medicine"),
+                            autoComplete: "off",
+                          }}
+                        />
+                        <CustomInput
+                          labelText="Start Date"
+                          id="startDate"
+                          formControlProps={{
+                            fullWidth: true,
+                          }}
+                          inputProps={{
+                            type: "text",
+                            onChange: handleChange("startDate"),
+                            autoComplete: "off",
+                          }}
+                        />
+                        <CustomInput
+                          labelText="End Date..."
+                          id="endDate"
+                          formControlProps={{
+                            fullWidth: true,
+                          }}
+                          inputProps={{
+                            type: "text",
+                            onChange: handleChange("endDate"),
+                            autoComplete: "off",
+                          }}
+                        />
+                        <CustomInput
+                          labelText="Routine..."
+                          id="routine"
+                          formControlProps={{
+                            fullWidth: true,
+                          }}
+                          inputProps={{
+                            type: "text",
+                            onChange: handleChange("routine"),
+                            autoComplete: "off",
+                          }}
+                        />
+                        <CustomInput
+                          labelText="No of Pills..."
+                          id="noOfPills"
+                          formControlProps={{
+                            fullWidth: true,
+                          }}
+                          inputProps={{
+                            type: "text",
+                            onChange: handleChange("noOfPills"),
+                            autoComplete: "off",
+                          }}
+                        />
+                        <Button color="danger" onClick={handleSubmit}>
+                          Add Container
                         </Button>
                       </form>
                     )}

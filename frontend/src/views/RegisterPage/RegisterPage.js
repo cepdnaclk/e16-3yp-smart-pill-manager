@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { register } from "../../services/userService";
@@ -24,7 +24,8 @@ import { ConfirmationNumber, Lock, Email, People } from "@material-ui/icons";
 const useStyles = makeStyles(styles);
 
 export default function RegisterPage(props) {
-  const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+  const [cardAnimaton, setCardAnimation] = useState("cardHidden");
+  const [serverError, setServerError] = useState("");
 
   setTimeout(function () {
     setCardAnimation("");
@@ -42,12 +43,12 @@ export default function RegisterPage(props) {
   const handleSubmit = async (userInfo) => {
     try {
       const response = await register(userInfo);
-      const token = response.headers["x-auth-token"];
+      const token = response.data;
       localStorage.setItem("token", token);
       window.location = "/patients";
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
-        console.log(ex.response.data);
+        setServerError(ex.response.data);
       }
     }
   };
@@ -77,7 +78,13 @@ export default function RegisterPage(props) {
                   onSubmit={handleSubmit}
                   validationSchema={validateSchema}
                 >
-                  {({ handleChange, handleSubmit, errors }) => (
+                  {({
+                    handleChange,
+                    handleSubmit,
+                    errors,
+                    touched,
+                    setFieldTouched,
+                  }) => (
                     <form className={classes.form}>
                       <CardHeader color="danger" className={classes.cardHeader}>
                         <h4>REGISTER</h4>
@@ -113,6 +120,13 @@ export default function RegisterPage(props) {
                       </CardHeader>
 
                       <CardBody>
+                        {
+                          <strong
+                            style={{ color: "red", fontFamily: "monospace" }}
+                          >
+                            {serverError}
+                          </strong>
+                        }
                         <CustomInput
                           labelText="Name..."
                           id="name"
@@ -123,6 +137,7 @@ export default function RegisterPage(props) {
                           inputProps={{
                             type: "text",
                             onChange: handleChange("name"),
+                            onBlur: () => setFieldTouched("name"),
                             endAdornment: (
                               <InputAdornment position="end">
                                 <People className={classes.inputIconsColor} />
@@ -130,6 +145,13 @@ export default function RegisterPage(props) {
                             ),
                           }}
                         />
+                        {touched.name && (
+                          <strong
+                            style={{ color: "red", fontFamily: "monospace" }}
+                          >
+                            {errors.name}
+                          </strong>
+                        )}
                         <CustomInput
                           labelText="Device ID..."
                           id="deviceID"
@@ -140,6 +162,7 @@ export default function RegisterPage(props) {
                           inputProps={{
                             type: "text",
                             onChange: handleChange("deviceID"),
+                            onBlur: () => setFieldTouched("deviceID"),
                             endAdornment: (
                               <InputAdornment position="end">
                                 <ConfirmationNumber
@@ -149,6 +172,13 @@ export default function RegisterPage(props) {
                             ),
                           }}
                         />
+                        {touched.deviceID && (
+                          <strong
+                            style={{ color: "red", fontFamily: "monospace" }}
+                          >
+                            {errors.deviceID}
+                          </strong>
+                        )}
                         <CustomInput
                           labelText="Username..."
                           id="username"
@@ -159,6 +189,7 @@ export default function RegisterPage(props) {
                           inputProps={{
                             type: "text",
                             onChange: handleChange("username"),
+                            onBlur: () => setFieldTouched("username"),
                             endAdornment: (
                               <InputAdornment position="end">
                                 <People className={classes.inputIconsColor} />
@@ -166,6 +197,13 @@ export default function RegisterPage(props) {
                             ),
                           }}
                         />
+                        {touched.username && (
+                          <strong
+                            style={{ color: "red", fontFamily: "monospace" }}
+                          >
+                            {errors.username}
+                          </strong>
+                        )}
                         <CustomInput
                           labelText="Email..."
                           id="email"
@@ -176,6 +214,7 @@ export default function RegisterPage(props) {
                           inputProps={{
                             type: "email",
                             onChange: handleChange("email"),
+                            onBlur: () => setFieldTouched("email"),
                             endAdornment: (
                               <InputAdornment position="end">
                                 <Email className={classes.inputIconsColor} />
@@ -183,6 +222,13 @@ export default function RegisterPage(props) {
                             ),
                           }}
                         />
+                        {touched.email && (
+                          <strong
+                            style={{ color: "red", fontFamily: "monospace" }}
+                          >
+                            {errors.email}
+                          </strong>
+                        )}
                         <CustomInput
                           labelText="Password"
                           id="pass"
@@ -193,6 +239,7 @@ export default function RegisterPage(props) {
                           inputProps={{
                             type: "password",
                             onChange: handleChange("password"),
+                            onBlur: () => setFieldTouched("password"),
                             endAdornment: (
                               <InputAdornment position="end">
                                 <Lock className={classes.inputIconsColor} />
@@ -201,6 +248,13 @@ export default function RegisterPage(props) {
                             autoComplete: "off",
                           }}
                         />
+                        {touched.password && (
+                          <strong
+                            style={{ color: "red", fontFamily: "monospace" }}
+                          >
+                            {errors.password}
+                          </strong>
+                        )}
                       </CardBody>
                       <CardFooter className={classes.cardFooter}>
                         <Button

@@ -1,9 +1,5 @@
 import React from "react";
 
-import { Formik } from "formik";
-import * as Yup from "yup";
-import { addPatients } from "../../services/patientService";
-
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import Slide from "@material-ui/core/Slide";
@@ -19,8 +15,6 @@ import Close from "@material-ui/icons/Close";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
-
-import CustomInput from "components/CustomInput/CustomInput";
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/javascriptStyles.js";
 
@@ -50,13 +44,9 @@ export default function ContainerDetails({
         <GridItem xs={12} sm={12} md={6}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6} lg={4}>
-              <Button
-                color="transparent"
-                block
-                onClick={() => setClassicModal(true)}
-              >
+              <IconButton color="danger" onClick={() => setClassicModal(true)}>
                 <LibraryBooks className={classes.icon} />
-              </Button>
+              </IconButton>
               <Dialog
                 classes={{
                   root: classes.center,
