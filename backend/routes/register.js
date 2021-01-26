@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const router = express.Router();
 
 router.post("/", async (req, res) => {
-  res.header['Access-Control-Allow-Origin'] = '*';
+  res.header["Access-Control-Allow-Origin"] = "*";
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
   try {
@@ -14,11 +14,13 @@ router.post("/", async (req, res) => {
     });
     if (!device) return res.status(400).send("Invalid DeviceID.");
     let user = await User.findOne({
-      deviceID: req.body.deviceID,
-      email: req.body.email,
+      $or: [{ deviceID: req.body.deviceID }, { email: req.body.email }],
     });
 
-    if (user) return res.status(400).send("Device already registered.");
+    if (user)
+      return res
+        .status(400)
+        .send("Device already registered or Email already used.");
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(req.body.password, salt);
 
@@ -31,7 +33,7 @@ router.post("/", async (req, res) => {
 
     await user.save();
     const token = user.generateAuthToken();
-    res.header("x-auth-token", token).send(user);
+    res.header("x-auth-token", token).send(token);
   } catch (ex) {
     console.log(ex);
   }

@@ -3,14 +3,10 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
-
-import profile from "assets/img/faces/christian.jpg";
+import { Delete } from "@material-ui/icons";
 import ContainerDetails from "./ContainerDetails";
+import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,9 +17,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
   content: {
-    display: "flex",
-    alignItems: "center",
-    // flex: "1 0 auto",
+    flex: "1 0 auto",
   },
   cover: {
     width: 151,
@@ -33,6 +27,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     paddingLeft: theme.spacing(1),
     paddingBottom: theme.spacing(1),
+  },
+  playIcon: {
+    height: 38,
+    width: 38,
   },
 }));
 
@@ -44,6 +42,7 @@ export default function ContainerCard({
   containerID,
   noOfPills,
   routine,
+  onDelete,
 }) {
   const classes = useStyles();
   const theme = useTheme();
@@ -55,9 +54,6 @@ export default function ContainerCard({
           <Typography component="h5" variant="h5">
             {medicine}
           </Typography>
-          {/* <Typography variant="subtitle2" color="textSecondary">
-            No. of Pills : {noOfPills}
-          </Typography> */}
         </CardContent>
         <div className={classes.controls}>
           <ContainerDetails
@@ -69,13 +65,16 @@ export default function ContainerCard({
             routine={routine}
             noOfPills={noOfPills}
           />
+          <IconButton color="inherit" onClick={onDelete}>
+            <Delete />
+          </IconButton>
         </div>
       </div>
-      <CardMedia
-        className={classes.cover}
-        image={profile}
-        title="Live from space album cover"
-      />
+      <CardMedia className={classes.cover}>
+        <div>
+          <h1>{containerID}</h1>
+        </div>
+      </CardMedia>
     </Card>
   );
 }

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-import { getContainers } from "../../services/containerService";
+import {
+  getContainers,
+  deleteContainer,
+} from "../../services/containerService";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -34,12 +37,12 @@ export default function ContainersPage(props) {
     getC();
   }, []);
 
-  // const handleDelete = async (id) => {
-  //   await deletePatient(id);
-  //   const updatePatients = patients;
-  //   const patientsNew = updatePatients.filter((p) => p._id !== id);
-  //   setContainers(patientsNew);
-  // };
+  const handleDelete = async (id) => {
+    await deleteContainer(id);
+    const updateContainers = containers;
+    const containersNew = updateContainers.filter((c) => c._id !== id);
+    setContainers(containersNew);
+  };
 
   return (
     <div
@@ -77,6 +80,7 @@ export default function ContainersPage(props) {
                 patientID={c.patientID}
                 routine={c.routine}
                 noOfPills={c.noOfPills}
+                onDelete={() => handleDelete(c._id)}
               />
             </GridItem>
           ))}
