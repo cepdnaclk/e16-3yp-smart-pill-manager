@@ -4,6 +4,7 @@
   "description": "Material Kit React. Coded by Creative Tim",
   "private": true,
   "main": "src/index.js",
+  "homepage": "/",
   "dependencies": {
     "@material-ui/core": "4.10.0",
     "@material-ui/icons": "4.9.1",

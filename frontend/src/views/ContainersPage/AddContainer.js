@@ -2,7 +2,7 @@ import React from "react";
 
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { addPatients } from "../../services/patientService";
+import { addContainer } from "../../services/containerService";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -21,8 +21,12 @@ import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 
 import CustomInput from "components/CustomInput/CustomInput";
+import PatientSelect from "./PatientSelect";
+import TextField from "@material-ui/core/TextField";
+import Grid from "@material-ui/core/Grid";
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/javascriptStyles.js";
+import Muted from "components/Typography/Muted";
 
 const useStyles = makeStyles(styles);
 
@@ -38,18 +42,53 @@ export default function AddContainer() {
 
   const validationSchema = Yup.object().shape({
     containerID: Yup.number().min(1).max(12).required(),
-    patientName: Yup.string().required().min(2).max(50),
+    patientID: Yup.string().required().min(2).max(50),
     medicine: Yup.string().required(),
     endDate: Yup.date().required(),
-    routine: Yup.string(),
+    morningPills: Yup.number(),
     noOfPills: Yup.number(),
   });
 
-  const handleSubmit = (containerInfo) => {
-    // await addPatients(name, age);
-    // window.location = "/containers";
-    console.log(containerInfo);
+  const handleSubmit = async (info) => {
+    const routineArray = [];
+    const morningData = {
+      time: info.morningTime,
+      pills: parseInt(info.morningPills),
+    };
+    const afternoonData = {
+      time: info.afternoonTime,
+      pills: parseInt(info.afternoonPills),
+    };
+    const eveningData = {
+      time: info.eveningTime,
+      pills: parseInt(info.eveningPills),
+    };
+
+    routineArray.push(morningData);
+    routineArray.push(afternoonData);
+    routineArray.push(eveningData);
+
+    const data = {
+      containerID: parseInt(info.containerID),
+      patientID: info.patientID,
+      medicine: info.medicine,
+      startDate: info.startDate,
+      endDate: info.endDate,
+      routine: routineArray,
+      noOfPills: info.noOfPills,
+      isFull: true,
+    };
+
+    await addContainer(data);
+    window.location = "/containers";
+    console.log(data);
     setClassicModal(false);
+  };
+
+  const myStyles = {
+    textField: {
+      width: 150,
+    },
   };
 
   return (
@@ -100,29 +139,28 @@ export default function AddContainer() {
                 >
                   <Formik
                     initialValues={{
-                      patientName: "",
+                      patientID: "",
                       containerID: 0,
                       medicine: "",
-                      startDate: "",
-                      endDate: "",
-                      routine: "",
+                      startDate: Date.now(),
+                      endDate: Date.now(),
+                      morningTime: "",
+                      afternoonTime: "",
+                      eveningTime: "",
+                      morningPills: 0,
+                      afternoonPills: 0,
+                      eveningPills: 0,
+
                       noOfPills: 0,
                     }}
                     onSubmit={handleSubmit}
                     validationSchema={validationSchema}
                   >
-                    {({ handleChange, handleSubmit }) => (
+                    {({ handleChange, handleSubmit, values }) => (
                       <form>
-                        <CustomInput
-                          labelText="Patient Name..."
-                          id="patientName"
-                          formControlProps={{
-                            fullWidth: true,
-                          }}
-                          inputProps={{
-                            type: "text",
-                            onChange: handleChange("patientName"),
-                          }}
+                        <PatientSelect
+                          onChange={handleChange("patientID")}
+                          value={values.patientID}
                         />
                         <CustomInput
                           labelText="Container Number..."
@@ -172,18 +210,99 @@ export default function AddContainer() {
                             autoComplete: "off",
                           }}
                         />
-                        <CustomInput
-                          labelText="Routine..."
-                          id="routine"
-                          formControlProps={{
-                            fullWidth: true,
-                          }}
-                          inputProps={{
-                            type: "text",
-                            onChange: handleChange("routine"),
-                            autoComplete: "off",
-                          }}
-                        />
+                        <Muted>Routine Time</Muted>
+                        <br />
+                        <Grid container justify="space-between">
+                          <TextField
+                            id="time"
+                            label="Morining Time"
+                            type="time"
+                            defaultValue=""
+                            style={myStyles.textField}
+                            InputLabelProps={{
+                              shrink: true,
+                            }}
+                            inputProps={{
+                              step: 300, // 5 min
+                              onChange: handleChange("morningTime"),
+                            }}
+                          />
+                          <TextField
+                            id="time"
+                            label="Afternoon Time"
+                            type="time"
+                            defaultValue=""
+                            style={myStyles.textField}
+                            InputLabelProps={{
+                              shrink: true,
+                            }}
+                            inputProps={{
+                              step: 300, // 5 min
+                              onChange: handleChange("afternoonTime"),
+                            }}
+                          />
+                          <TextField
+                            id="time"
+                            label="Evening Time"
+                            type="time"
+                            defaultValue=""
+                            style={myStyles.textField}
+                            InputLabelProps={{
+                              shrink: true,
+                            }}
+                            inputProps={{
+                              step: 300, // 5 min
+                              onChange: handleChange("eveningTime"),
+                            }}
+                          />
+                        </Grid>
+                        <Muted>Routine Pills</Muted>
+                        <br />
+                        <GridContainer justify="space-around">
+                          <GridItem xs={12} sm={4} md={4} lg={3}>
+                            <CustomInput
+                              labelText="Morninig Pills"
+                              id="mpills"
+                              inputProps={{
+                                type: "int",
+                                onChange: handleChange("morningPills"),
+                                autoComplete: "off",
+                              }}
+                              formControlProps={{
+                                fullWidth: true,
+                              }}
+                            />
+                          </GridItem>
+                          <GridItem xs={12} sm={4} md={4} lg={3}>
+                            <CustomInput
+                              labelText="Afternoon Pills"
+                              id="apills"
+                              formControlProps={{
+                                fullWidth: true,
+                              }}
+                              inputProps={{
+                                type: "text",
+                                onChange: handleChange("afternoonPills"),
+                                autoComplete: "off",
+                              }}
+                            />
+                          </GridItem>
+                          <GridItem xs={12} sm={4} md={4} lg={3}>
+                            <CustomInput
+                              labelText="Evening Pills"
+                              id="float"
+                              formControlProps={{
+                                fullWidth: true,
+                              }}
+                              inputProps={{
+                                type: "text",
+                                onChange: handleChange("eveningPills"),
+                                autoComplete: "off",
+                              }}
+                            />
+                          </GridItem>
+                        </GridContainer>
+
                         <CustomInput
                           labelText="No of Pills..."
                           id="noOfPills"

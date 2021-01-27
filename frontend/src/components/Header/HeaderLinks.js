@@ -1,7 +1,5 @@
 /*eslint-disable*/
 import React from "react";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 
@@ -20,6 +18,9 @@ import {
   ExitToApp,
   AccountCircle,
   Group,
+  Facebook,
+  Instagram,
+  Twitter,
 } from "@material-ui/icons";
 
 // core components
@@ -78,11 +79,7 @@ export default function HeaderLinks({ user }) {
           </ListItem>
         </React.Fragment>
       )}
-      {/* <ListItem className={classes.listItem}>
-        <Link to="/components" className={classes.navLink}>
-          <Apps className={classes.icons} /> Components
-        </Link>
-      </ListItem> */}
+
       <ListItem className={classes.listItem}>
         <Tooltip
           id="instagram-twitter"
@@ -96,7 +93,7 @@ export default function HeaderLinks({ user }) {
             color="transparent"
             className={classes.navLink}
           >
-            <i className={classes.socialIcons + " fab fa-twitter"} />
+            <Twitter />
           </Button>
         </Tooltip>
       </ListItem>
@@ -113,7 +110,7 @@ export default function HeaderLinks({ user }) {
             target="_blank"
             className={classes.navLink}
           >
-            <i className={classes.socialIcons + " fab fa-facebook"} />
+            <Facebook />
           </Button>
         </Tooltip>
       </ListItem>
@@ -130,7 +127,7 @@ export default function HeaderLinks({ user }) {
             target="_blank"
             className={classes.navLink}
           >
-            <i className={classes.socialIcons + " fab fa-instagram"} />
+            <Instagram />
           </Button>
         </Tooltip>
       </ListItem>
