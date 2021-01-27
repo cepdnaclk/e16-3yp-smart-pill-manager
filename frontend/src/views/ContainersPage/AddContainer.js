@@ -21,8 +21,13 @@ import Button from "components/CustomButtons/Button.js";
 
 import CustomInput from "components/CustomInput/CustomInput";
 import PatientSelect from "./PatientSelect";
+import RoutineSelect from "./RoutineSelect";
+import RoutineTimer from "./RoutineTimer";
+import TextField from "@material-ui/core/TextField";
+import Grid from "@material-ui/core/Grid";
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/javascriptStyles.js";
+import Muted from "components/Typography/Muted";
 
 const useStyles = makeStyles(styles);
 
@@ -41,7 +46,7 @@ export default function AddContainer() {
     patientID: Yup.string().required().min(2).max(50),
     medicine: Yup.string().required(),
     endDate: Yup.date().required(),
-    routine: Yup.string(),
+    morningPills: Yup.number(),
     noOfPills: Yup.number(),
   });
 
@@ -103,9 +108,15 @@ export default function AddContainer() {
                       patientID: "",
                       containerID: 0,
                       medicine: "",
-                      startDate: "",
-                      endDate: "",
-                      routine: "",
+                      startDate: Date.now(),
+                      endDate: Date.now(),
+                      morningTime: "",
+                      afternoonTime: "",
+                      eveningTime: "",
+                      morningPills: 0,
+                      afternoonPills: 0,
+                      eveningPills: 0,
+
                       noOfPills: 0,
                     }}
                     onSubmit={handleSubmit}
@@ -165,18 +176,69 @@ export default function AddContainer() {
                             autoComplete: "off",
                           }}
                         />
-                        <CustomInput
-                          labelText="Routine..."
-                          id="routine"
-                          formControlProps={{
-                            fullWidth: true,
-                          }}
-                          inputProps={{
-                            type: "text",
-                            onChange: handleChange("routine"),
-                            autoComplete: "off",
-                          }}
-                        />
+                        <Muted>Routine Time</Muted>
+                        <br />
+                        <Grid container justify="space-between">
+                          <RoutineTimer
+                            label="Morning Time"
+                            onChange={handleChange("morningTime")}
+                          />
+                          <RoutineTimer
+                            label="Afternoon Time"
+                            onChange={handleChange("afternoonTime")}
+                          />
+                          <RoutineTimer
+                            label="Evening Time"
+                            onChange={handleChange("eveningTime")}
+                          />
+                        </Grid>
+                        <Muted>Routine Pills</Muted>
+                        <br />
+                        <GridContainer justify="space-around">
+                          <GridItem xs={12} sm={4} md={4} lg={3}>
+                            <CustomInput
+                              labelText="Morninig Pills"
+                              id="mpills"
+                              inputProps={{
+                                type: "int",
+                                onChange: handleChange("morningPills"),
+                                autoComplete: "off",
+                              }}
+                              formControlProps={{
+                                fullWidth: true,
+                              }}
+                            />
+                          </GridItem>
+                          <GridItem xs={12} sm={4} md={4} lg={3}>
+                            <CustomInput
+                              labelText="Afternoon Pills"
+                              id="apills"
+                              formControlProps={{
+                                fullWidth: true,
+                              }}
+                              inputProps={{
+                                type: "text",
+                                onChange: handleChange("afternoonPills"),
+                                autoComplete: "off",
+                              }}
+                            />
+                          </GridItem>
+                          <GridItem xs={12} sm={4} md={4} lg={3}>
+                            <CustomInput
+                              labelText="Evening Pills"
+                              id="float"
+                              formControlProps={{
+                                fullWidth: true,
+                              }}
+                              inputProps={{
+                                type: "text",
+                                onChange: handleChange("eveningPills"),
+                                autoComplete: "off",
+                              }}
+                            />
+                          </GridItem>
+                        </GridContainer>
+
                         <CustomInput
                           labelText="No of Pills..."
                           id="noOfPills"
