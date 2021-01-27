@@ -10,7 +10,7 @@ const Routine = mongoose.model("Routine", routineSchema);
 
 function validateRoutine(routine) {
   const schema = Joi.object({
-    time: Joi.number().required().min(1).max(24).label("routine time"),
+    time: Joi.string().required().label("routine time"),
     pills: Joi.number().min(0).label("number of pills"),
   });
   return schema.validate(routine);

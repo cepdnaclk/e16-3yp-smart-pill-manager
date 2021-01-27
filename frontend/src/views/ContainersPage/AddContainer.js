@@ -2,6 +2,7 @@ import React from "react";
 
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { addContainer } from "../../services/containerService";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -21,8 +22,6 @@ import Button from "components/CustomButtons/Button.js";
 
 import CustomInput from "components/CustomInput/CustomInput";
 import PatientSelect from "./PatientSelect";
-import RoutineSelect from "./RoutineSelect";
-import RoutineTimer from "./RoutineTimer";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 
@@ -50,11 +49,46 @@ export default function AddContainer() {
     noOfPills: Yup.number(),
   });
 
-  const handleSubmit = (containerInfo) => {
-    // await addPatients(name, age);
-    // window.location = "/containers";
-    console.log(containerInfo);
+  const handleSubmit = async (info) => {
+    const routineArray = [];
+    const morningData = {
+      time: info.morningTime,
+      pills: parseInt(info.morningPills),
+    };
+    const afternoonData = {
+      time: info.afternoonTime,
+      pills: parseInt(info.afternoonPills),
+    };
+    const eveningData = {
+      time: info.eveningTime,
+      pills: parseInt(info.eveningPills),
+    };
+
+    routineArray.push(morningData);
+    routineArray.push(afternoonData);
+    routineArray.push(eveningData);
+
+    const data = {
+      containerID: parseInt(info.containerID),
+      patientID: info.patientID,
+      medicine: info.medicine,
+      startDate: info.startDate,
+      endDate: info.endDate,
+      routine: routineArray,
+      noOfPills: info.noOfPills,
+      isFull: true,
+    };
+
+    await addContainer(data);
+    window.location = "/containers";
+    console.log(data);
     setClassicModal(false);
+  };
+
+  const myStyles = {
+    textField: {
+      width: 150,
+    },
   };
 
   return (
@@ -179,17 +213,47 @@ export default function AddContainer() {
                         <Muted>Routine Time</Muted>
                         <br />
                         <Grid container justify="space-between">
-                          <RoutineTimer
-                            label="Morning Time"
-                            onChange={handleChange("morningTime")}
+                          <TextField
+                            id="time"
+                            label="Morining Time"
+                            type="time"
+                            defaultValue=""
+                            style={myStyles.textField}
+                            InputLabelProps={{
+                              shrink: true,
+                            }}
+                            inputProps={{
+                              step: 300, // 5 min
+                              onChange: handleChange("morningTime"),
+                            }}
                           />
-                          <RoutineTimer
+                          <TextField
+                            id="time"
                             label="Afternoon Time"
-                            onChange={handleChange("afternoonTime")}
+                            type="time"
+                            defaultValue=""
+                            style={myStyles.textField}
+                            InputLabelProps={{
+                              shrink: true,
+                            }}
+                            inputProps={{
+                              step: 300, // 5 min
+                              onChange: handleChange("afternoonTime"),
+                            }}
                           />
-                          <RoutineTimer
+                          <TextField
+                            id="time"
                             label="Evening Time"
-                            onChange={handleChange("eveningTime")}
+                            type="time"
+                            defaultValue=""
+                            style={myStyles.textField}
+                            InputLabelProps={{
+                              shrink: true,
+                            }}
+                            inputProps={{
+                              step: 300, // 5 min
+                              onChange: handleChange("eveningTime"),
+                            }}
                           />
                         </Grid>
                         <Muted>Routine Pills</Muted>

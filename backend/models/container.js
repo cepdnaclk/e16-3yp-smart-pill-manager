@@ -20,6 +20,7 @@ function validateContainer(container) {
     containerID: Joi.number().min(1).max(12).required(),
     patientID: Joi.string().required().min(2).max(50),
     medicine: Joi.string().required(),
+    startDate:Joi.date(),
     endDate: Joi.date().required(),
     routine: Joi.array().max(3),
     noOfPills: Joi.number(),
