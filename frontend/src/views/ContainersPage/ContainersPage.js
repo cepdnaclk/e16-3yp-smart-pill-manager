@@ -19,9 +19,6 @@ import styles from "assets/jss/material-kit-react/views/profilePage.js";
 
 import image from "assets/img/bg2.jpg";
 import AddContainer from "./AddContainer";
-// import UpdatePatient from "./UpdatePatient";
-
-//import logo from "../../assets/svg/logo.svg";
 
 const useStyles = makeStyles(styles);
 
@@ -58,9 +55,6 @@ export default function ContainersPage(props) {
 
         <div className={classes.title} style={{ top: "20px" }}>
           <h2>My Containers</h2>
-          {/* <object type="image/svg+xml" data={logo} loop={true}>
-            svg-animation
-          </object> */}
         </div>
         <GridContainer>
           <AddContainer />
