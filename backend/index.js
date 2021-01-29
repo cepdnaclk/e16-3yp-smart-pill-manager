@@ -16,14 +16,16 @@ app.use("/api/login", userLogin);
 app.use("/api/patients", patients);
 app.use("/api/container", containers);
 
+const db = config.get("db");
+
 mongoose
-  .connect(config.get("db"), {
+  .connect(db, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false,
   })
-  .then(() => console.log("Connected to mongodb..."))
+  .then(() => console.log(`Connected to ${db}...`))
   .catch((err) => console.log("ERROR : ", err));
 
 const port = process.env.PORT || 3900;

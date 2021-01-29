@@ -81,7 +81,6 @@ export default function AddContainer() {
 
     await addContainer(data);
     window.location = "/containers";
-    console.log(data);
     setClassicModal(false);
   };
 
@@ -150,7 +149,6 @@ export default function AddContainer() {
                       morningPills: 0,
                       afternoonPills: 0,
                       eveningPills: 0,
-
                       noOfPills: 0,
                     }}
                     onSubmit={handleSubmit}

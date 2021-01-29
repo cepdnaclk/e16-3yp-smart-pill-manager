@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -8,20 +8,19 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 // @material-ui/icons
-import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import Close from "@material-ui/icons/Close";
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/javascriptStyles.js";
 
 const useStyles = makeStyles(styles);
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="down" ref={ref} {...props} />;
+  return <Slide direction="up" ref={ref} {...props} />;
 });
 
 Transition.displayName = "Transition";
@@ -36,7 +35,7 @@ export default function ContainerDetails({
   routine,
 }) {
   const classes = useStyles();
-  const [classicModal, setClassicModal] = React.useState(false);
+  const [classicModal, setClassicModal] = useState(false);
 
   return (
     <div className={classes.container}>
@@ -44,9 +43,13 @@ export default function ContainerDetails({
         <GridItem xs={12} sm={12} md={6}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6} lg={4}>
-              <IconButton color="danger" onClick={() => setClassicModal(true)}>
-                <LibraryBooks className={classes.icon} />
-              </IconButton>
+              <Button
+                color="primary"
+                size="small"
+                onClick={() => setClassicModal(true)}
+              >
+                more
+              </Button>
               <Dialog
                 classes={{
                   root: classes.center,
@@ -68,34 +71,50 @@ export default function ContainerDetails({
                     className={classes.modalCloseButton}
                     key="close"
                     aria-label="Close"
-                    color="inherit"
+                    color="secondary"
                     onClick={() => setClassicModal(false)}
                   >
                     <Close className={classes.modalClose} />
                   </IconButton>
-                  <h4 className={classes.modalTitle}>CONTAINER DETAILS</h4>
+                  <Typography color="secondary" component="h5" variant="h5">
+                    CONTAINER DETAILS
+                  </Typography>
                 </DialogTitle>
                 <DialogContent
                   id="classic-modal-slide-description"
                   className={classes.modalBody}
                 >
-                  <Typography component="h5" variant="h5">
-                    Medicine : {medicine}
+                  <Typography color="primary" variant="h5">
+                    MEDICINE : {medicine}
                   </Typography>
-                  <Typography component="h5" variant="h5">
-                    Container No. : {containerID}
+                  <Typography color="primary" component="h5" variant="h5">
+                    CONTAINER NO. : {containerID}
                   </Typography>
-                  <Typography component="h5" variant="h5">
-                    Start Date : {startDate}
+                  <Typography color="primary" component="h5" variant="h5">
+                    PATIENT ID : {patientID}
                   </Typography>
-                  <Typography component="h5" variant="h5">
-                    End Date : {endDate}
+                  <Typography color="primary" component="h5" variant="h5">
+                    SESSION START DATE : {startDate}
                   </Typography>
-                  <Typography component="h5" variant="h5">
-                    No. Of Pills : {noOfPills}
+                  <Typography color="primary" component="h5" variant="h5">
+                    SESSION END DATE : {endDate}
                   </Typography>
-                  <Typography component="h5" variant="h5">
-                    routine : {routine[0].time}
+                  <Typography color="primary" component="h5" variant="h5">
+                    ROUTINE...
+                  </Typography>
+                  <Typography color="secondary">
+                    {`MORNING TIME: ${routine[0].time}   MORNING PILLS: ${routine[0].pills}`}
+                  </Typography>
+                  <Typography color="secondary">
+                    AFTERNOON TIME: {routine[1].time} {"  "} AFTERNOON PILLS:{" "}
+                    {routine[1].pills}
+                  </Typography>
+                  <Typography color="secondary">
+                    EVENING TIME: {routine[2].time} {"  "} EVENING PILLS:{" "}
+                    {routine[2].pills}
+                  </Typography>
+                  <Typography color="primary" component="h5" variant="h5">
+                    TOTAL MEDICINE PILLS : {noOfPills}
                   </Typography>
                 </DialogContent>
               </Dialog>

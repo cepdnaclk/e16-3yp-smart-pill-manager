@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 
-import Components from "views/Components/Components.js";
 import LandingPage from "views/LandingPage/LandingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
@@ -48,7 +47,6 @@ class App extends Component {
           <Route path="/logout" component={Logout} />
           <Route path="/patients" component={PatientsPage} />
           <Route path="/containers" component={ContainersPage} />
-          <Route path="/components" component={Components} />
           <Route path="/not-found" component={NotFound} />
           <Route path="/" exact component={HomePage} />
           <Redirect to="/not-found" />

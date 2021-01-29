@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Joi = require("joi");
 
 const routineSchema = new mongoose.Schema({
-  time: Number,
+  time: String,
   pills: Number,
 });
 
