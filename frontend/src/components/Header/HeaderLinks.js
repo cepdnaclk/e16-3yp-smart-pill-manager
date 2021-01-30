@@ -58,11 +58,6 @@ export default function HeaderLinks({ user }) {
       {user && (
         <React.Fragment>
           <ListItem className={classes.listItem}>
-            <Link to="/profile-page" className={classes.navLink}>
-              <AccountCircle className={classes.icons} /> Profile
-            </Link>
-          </ListItem>
-          <ListItem className={classes.listItem}>
             <Link to="/patients" className={classes.navLink}>
               <Group className={classes.icons} /> Patients
             </Link>
@@ -71,6 +66,18 @@ export default function HeaderLinks({ user }) {
             <Link to="/containers" className={classes.navLink}>
               <Apps className={classes.icons} /> Containers
             </Link>
+          </ListItem>
+          <ListItem className={classes.listItem}>
+            <Tooltip
+              id="instagram-twitter"
+              title={`Click Me ${user.username}`}
+              placement={window.innerWidth > 959 ? "top" : "left"}
+              classes={{ tooltip: classes.tooltip }}
+            >
+              <Link to="/profile-page" className={classes.navLink}>
+                <AccountCircle className={classes.icons} /> Profile
+              </Link>
+            </Tooltip>
           </ListItem>
           <ListItem className={classes.listItem}>
             <Link to="/logout" className={classes.navLink}>

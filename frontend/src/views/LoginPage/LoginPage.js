@@ -20,7 +20,7 @@ import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import image from "assets/img/bg2.jpg";
 
 import CustomInput from "components/CustomInput/CustomInput";
-import { InputAdornment } from "@material-ui/core";
+import { InputAdornment, Typography } from "@material-ui/core";
 import { Email, VpnKey } from "@material-ui/icons";
 
 const useStyles = makeStyles(styles);
@@ -43,7 +43,7 @@ export default function LoginPage(props) {
     try {
       const { data: jwt } = await login(email, password);
       localStorage.setItem("token", jwt);
-      window.location = "/patients";
+      window.location = "/";
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         setserverError(ex.response.data);
@@ -119,11 +119,12 @@ export default function LoginPage(props) {
                     }) => (
                       <React.Fragment>
                         <CardBody>
-                          <strong style={errorStyle}>{serverError}</strong>
+                          <Typography style={errorStyle}>
+                            {serverError}
+                          </Typography>
                           <CustomInput
                             labelText="Email..."
                             id="email"
-                            error={errors.email && true}
                             formControlProps={{
                               fullWidth: true,
                             }}
@@ -139,16 +140,15 @@ export default function LoginPage(props) {
                             }}
                           />
                           {touched.email && (
-                            <strong
+                            <Typography
                               style={{ color: "red", fontFamily: "monospace" }}
                             >
                               {errors.email}
-                            </strong>
+                            </Typography>
                           )}
                           <CustomInput
                             labelText="Password"
                             id="pass"
-                            error={errors.password && true}
                             formControlProps={{
                               fullWidth: true,
                             }}
@@ -165,11 +165,11 @@ export default function LoginPage(props) {
                             }}
                           />
                           {touched.password && (
-                            <strong
+                            <Typography
                               style={{ color: "red", fontFamily: "monospace" }}
                             >
                               {errors.password}
-                            </strong>
+                            </Typography>
                           )}
                         </CardBody>
                         <CardFooter className={classes.cardFooter}>

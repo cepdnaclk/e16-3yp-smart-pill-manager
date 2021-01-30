@@ -26,6 +26,8 @@ class App extends Component {
   }
 
   render() {
+    const { user } = this.state;
+
     return (
       <>
         <Header
@@ -37,16 +39,34 @@ class App extends Component {
             height: 250,
             color: "info",
           }}
-          rightLinks={<HeaderLinks user={this.state.user} />}
+          rightLinks={<HeaderLinks user={user} />}
         />
         <Switch>
           <Route path="/landing-page" component={LandingPage} />
-          <Route path="/profile-page" component={ProfilePage} />
           <Route path="/login-page" component={LoginPage} />
           <Route path="/register-page" component={RegisterPage} />
           <Route path="/logout" component={Logout} />
-          <Route path="/patients" component={PatientsPage} />
-          <Route path="/containers" component={ContainersPage} />
+          <Route
+            path="/profile-page"
+            render={(props) => {
+              if (!user) return <Redirect to="/login-page" />;
+              return <ProfilePage {...props} />;
+            }}
+          />
+          <Route
+            path="/patients"
+            render={(props) => {
+              if (!user) return <Redirect to="/login-page" />;
+              return <PatientsPage {...props} />;
+            }}
+          />
+          <Route
+            path="/containers"
+            render={(props) => {
+              if (!user) return <Redirect to="/login-page" />;
+              return <ContainersPage {...props} />;
+            }}
+          />
           <Route path="/not-found" component={NotFound} />
           <Route path="/" exact component={HomePage} />
           <Redirect to="/not-found" />
