@@ -18,6 +18,7 @@ import styles from "assets/jss/material-kit-react/views/landingPageSections/team
 
 import team1 from "assets/img/faces/Team2.jpeg";
 import team2 from "assets/img/faces/Team1.jpg";
+
 import team3 from "assets/img/faces/Team3.jpg";
 
 const useStyles = makeStyles(styles);
@@ -40,6 +41,7 @@ export default function TeamSection() {
                 <img src={team1} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
+
                 Aruna Nuwantha
                 <br />
                 <small className={classes.smallTitle}></small>
@@ -81,14 +83,18 @@ export default function TeamSection() {
                 <img src={team2} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
+
                 Chandula JPDM
+
                 <br />
-                <small className={classes.smallTitle}>Designer</small>
+                <small className={classes.smallTitle}>Co-Founder</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
+
                   I'm undergraduate of Faculty of Engineering University of
                   Peradeniya.
+
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
@@ -96,8 +102,9 @@ export default function TeamSection() {
                   justIcon
                   color="transparent"
                   className={classes.margin5}
+                  href="https://www.facebook.com/nuwantha.97"
                 >
-                  <i className={classes.socials + " fab fa-twitter"} />
+                  <i className={classes.socials + " fab fa-facebook"}/>
                 </Button>
                 <Button
                   justIcon
@@ -117,12 +124,14 @@ export default function TeamSection() {
               <h4 className={classes.cardTitle}>
                 Isuru Lakshan
                 <br />
-                <small className={classes.smallTitle}>Model</small>
+                <small className={classes.smallTitle}>Co-Founder</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
+
                   I'm undergraduate of Faculty of Engineering University of
                   Peradeniya.
+
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
@@ -144,6 +153,7 @@ export default function TeamSection() {
                   justIcon
                   color="transparent"
                   className={classes.margin5}
+                  href="https://www.facebook.com/isuru.lakshan.58323431/"
                 >
                   <i className={classes.socials + " fab fa-facebook"} />
                 </Button>

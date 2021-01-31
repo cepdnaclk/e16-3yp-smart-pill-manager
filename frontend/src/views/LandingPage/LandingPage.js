@@ -33,7 +33,7 @@ export default function LandingPage(props) {
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>Your Story Starts With Us.</h1>
+              <h1 className={classes.title}>Had trouble setting up?? Don't Worry....</h1>
               <h4>
                 If you can't understand how to configure smart pill manager
                 device. Please watch the video.
