@@ -35,7 +35,8 @@ export default function LandingPage(props) {
             <GridItem xs={12} sm={12} md={6}>
               <h1 className={classes.title}>Had trouble setting up?? Don't Worry....</h1>
               <h4>
-                Please go through the following video to fast set up your Device
+                If you can't understand how to configure smart pill manager
+                device. Please watch the video.
               </h4>
               <br />
               <Button

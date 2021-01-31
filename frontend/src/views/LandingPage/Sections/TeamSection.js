@@ -16,8 +16,9 @@ import CardFooter from "components/Card/CardFooter.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/teamStyle.js";
 
-import team1 from "assets/img/faces/Team1.jpg";
-import team2 from "assets/img/faces/Team2.jpg";
+import team1 from "assets/img/faces/Team2.jpeg";
+import team2 from "assets/img/faces/Team1.jpg";
+
 import team3 from "assets/img/faces/Team3.jpg";
 
 const useStyles = makeStyles(styles);
@@ -40,13 +41,15 @@ export default function TeamSection() {
                 <img src={team1} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                J.P.D.M Chandula
+
+                Aruna Nuwantha
                 <br />
-                <small className={classes.smallTitle}>Co-Founder</small>
+                <small className={classes.smallTitle}></small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                  Fuck', I think. What a beautiful word. If I could say only one thing for the rest of my life, that would be it. 
+                  I'm undergraduate of Faculty of Engineering University of
+                  Peradeniya.
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
@@ -80,13 +83,18 @@ export default function TeamSection() {
                 <img src={team2} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                Aruna Nuwantha
+
+                Chandula JPDM
+
                 <br />
                 <small className={classes.smallTitle}>Co-Founder</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                 Well I haven't fucked much in the past, But I will fuck plenty in the future. 
+
+                  I'm undergraduate of Faculty of Engineering University of
+                  Peradeniya.
+
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
@@ -120,7 +128,10 @@ export default function TeamSection() {
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                   I like the word 'fuck'. The word means what it means, but it also means whatever you need it to mean
+
+                  I'm undergraduate of Faculty of Engineering University of
+                  Peradeniya.
+
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
