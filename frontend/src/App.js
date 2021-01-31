@@ -49,21 +49,21 @@ class App extends Component {
           <Route
             path="/profile-page"
             render={(props) => {
-              if (!user) return <Redirect to="/login-page" />;
+              if (!user) return <LoginPage />;
               return <ProfilePage {...props} />;
             }}
           />
           <Route
             path="/patients"
             render={(props) => {
-              if (!user) return <Redirect to="/login-page" />;
+              if (!user) return <LoginPage />;
               return <PatientsPage {...props} />;
             }}
           />
           <Route
             path="/containers"
             render={(props) => {
-              if (!user) return <Redirect to="/login-page" />;
+              if (!user) return <LoginPage />;
               return <ContainersPage {...props} />;
             }}
           />
