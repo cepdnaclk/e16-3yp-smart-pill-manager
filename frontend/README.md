@@ -4,7 +4,7 @@
 
 In the project directory, you can run:
 
-## npm install
+### `npm install`
 Install all the required dependencies
 
 ### `npm run build`
