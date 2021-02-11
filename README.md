@@ -98,7 +98,7 @@ by this proposed product,
  ![image](https://user-images.githubusercontent.com/62101791/98899693-193d9680-24d6-11eb-8de5-6e527fdf8a40.png)
 
 ## Cloud Deployment Structure Frontend
-![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/AWS webapp cloud deploy.png)
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/AWS_webapp_cloud_deploy.png)
 
 ## Testing
 - Penatration Testing
