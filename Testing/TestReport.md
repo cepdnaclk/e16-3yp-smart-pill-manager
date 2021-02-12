@@ -43,23 +43,7 @@ What was tested ,Results and findings:
      Issue corrected to allow only 50 charachters. error message "Name is too long" displayed.
      tested 10 times - all passed
 
-<!-- Can user log in before user verification ○ No ○ Verification mail goes to the provided mail ○ Works smoothly
-
-● What if user forgot the password ○ Can go the forgot password option
-
-● What happens if the user enter the wrong password or email ○ No error message.Fixed that
-
-● Can user log in with multi devices at the same time ○ Yes can ○ What happen if both try to enter the same match ■ Can't create two players at the same time ■ Both or more will see the same screen
-
-● The limit of the sign-up quota ○ Set sign up quota to 100 per hour currently ○ (from the same ip address)
-
-● Sign up with a valid email ■ Results: Waits until the verification is done.(no instruction message displayed)
-
-● Sign up with an invalid email ■ Results: error msg displayed
-
-● Did not refresh the register screen when logged in ○ Fixed that issue -->
-
-## User abnormal Behaviour Testing
+## User Abnormal Behaviour Testing
 
 here we tested how our FRONTEND will behaviour if user performs abnormal tasks. Since we offer this webapplication to general Public it should be foolproof. some abnormal behaviors are expected 
 
@@ -81,6 +65,22 @@ What was tested ,Results and findings:
 
 Our webapplication should be perfectly working despite of the device and also which browser used. So we tested our webapplication using Polypane Tool to check how it work in different Devices and also We checked this in all main browsers widely used in the world today such as Chrome,Edge,Safari,UC,Operamini etc.  
 
+## Database data read/write Testing
+
+When user enters data through web application it is important the data should be written to correct table and retrieve data from correct table.
+
+So we tested out that with the help of MongoDB Atlas cloud
+
+Done manually by testing these possibilities.
+
+What was tested ,Results:
+
+- New entry should be added to Registered user collection just after a successful registration
+     tested 5 times - all passed
+
+- Patients object array should be filled when adding and items should be remove when deleting patients
+     tested 5 times - all passed
+
 ## Backend API Unit Testing
 
 We tested our Backend for expected responses for all kind of requests
@@ -88,35 +88,11 @@ we used [jest](https://pip.pypa.io/en/stable/) library for this.
 
 Following results were obtained.
 
+Backend Tests
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/Testing/Screenshots/testing1.png)
+        all tests passed
 
+following is Test summery
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/Testing/Screenshots/testing2.png)
 
-
-
-
-
-
-
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
-```python
-pip install foobar
-```
-
-## Usage
-
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/Testing/Screenshots/testing3.png)     
