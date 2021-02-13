@@ -88,11 +88,13 @@ we used [jest](https://pip.pypa.io/en/stable/) library for this.
 
 Following results were obtained.
 
-Backend Tests
-![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/Testing/Screenshots/testing1.png)
-        all tests passed
+### Backend Tests
 
-following is Test summery
-![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/Testing/Screenshots/testing2.png)
+![image](https://user-images.githubusercontent.com/62101791/107842629-ce8c2d00-6dea-11eb-93ae-8f7548dad9b8.png)
+* all tests passed
 
-![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/Testing/Screenshots/testing3.png)     
+### following is Test summery
+
+![image](https://user-images.githubusercontent.com/62101791/107842666-02675280-6deb-11eb-98d8-417acfcc6a35.png)
+
+![image](https://user-images.githubusercontent.com/62101791/107842681-19a64000-6deb-11eb-86b1-c8b1cf3404d1.png)    
