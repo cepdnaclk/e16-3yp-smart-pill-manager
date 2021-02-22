@@ -86,13 +86,38 @@ by this proposed product,
 - Add medicine into the device according to prescription added in web application
 - The device will send pill taken information(PTI:- whether the pills were taken or not) to the server
 - You can take medicine from the device at the prescribed time
-- Receive pill taken information via email 
+- Receive pill taken information via email
 
 ## Solution Architecture
-## Hardware & Software Designs
+![image](https://user-images.githubusercontent.com/62101791/99034636-a6025600-25a3-11eb-9ae2-b8e9c589fec0.png)
+
+## Product design     
+ ![design view](https://user-images.githubusercontent.com/62101791/98900733-63277c00-24d8-11eb-8a57-8d0e04eda2ba.png)
+
+## Hardware Design
+ ![image](https://user-images.githubusercontent.com/62101791/98899693-193d9680-24d6-11eb-8de5-6e527fdf8a40.png)
+
+## Cloud Deployment Structure Frontend
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/AWS_webapp_cloud_deploy.png)
+
 ## Testing
+- Penatration Testing
+- Browser Compatibilty Testing
+- Authentication Testing
+- Request Validation Testing
+- Database Data handlings
+- Frontend user abnormal activity Testing
+
+for further details
+
+
 ## Detailed budget
-## Conclusion
+ ![image](https://user-images.githubusercontent.com/62101791/99028989-4f8f1a80-2597-11eb-8458-ebadf6f5ae63.png)
+
+## Advising Lecturers 
+  - Dr. Isuru Nawinne
+  - Mr. Ziyan Maraikar
+
 ## GitHub Repo Link
 
 exciting things will be dropping soon!! keep in touch
