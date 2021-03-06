@@ -31,7 +31,7 @@ import Muted from "components/Typography/Muted";
 const useStyles = makeStyles(styles);
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="down" ref={ref} {...props} />;
+  return <Slide direction="up" ref={ref} {...props} />;
 });
 
 Transition.displayName = "Transition";
@@ -46,7 +46,7 @@ export default function AddContainer() {
     medicine: Yup.string().required(),
     endDate: Yup.date().required(),
     morningPills: Yup.number(),
-    noOfPills: Yup.number(),
+    noOfPills: Yup.number().required(),
   });
 
   const handleSubmit = async (info) => {
@@ -105,6 +105,7 @@ export default function AddContainer() {
                 Add Container
               </Button>
               <Dialog
+                //fullScreen
                 classes={{
                   root: classes.center,
                   paper: classes.modal,
@@ -141,8 +142,8 @@ export default function AddContainer() {
                       patientID: "",
                       containerID: 0,
                       medicine: "",
-                      startDate: Date.now(),
-                      endDate: Date.now(),
+                      startDate: "",
+                      endDate: "",
                       morningTime: "",
                       afternoonTime: "",
                       eveningTime: "",
@@ -191,7 +192,7 @@ export default function AddContainer() {
                             fullWidth: true,
                           }}
                           inputProps={{
-                            type: "text",
+                            type: "date",
                             onChange: handleChange("startDate"),
                             autoComplete: "off",
                           }}
@@ -203,14 +204,14 @@ export default function AddContainer() {
                             fullWidth: true,
                           }}
                           inputProps={{
-                            type: "text",
+                            type: "date",
                             onChange: handleChange("endDate"),
                             autoComplete: "off",
                           }}
                         />
                         <Muted>Routine Time</Muted>
                         <br />
-                        <Grid container justify="space-between">
+                        <Grid container justify="space-around">
                           <TextField
                             id="time"
                             label="Morining Time"

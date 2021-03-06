@@ -21,6 +21,7 @@ import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 
 import CustomInput from "components/CustomInput/CustomInput";
+import { Typography } from "@material-ui/core";
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/javascriptStyles.js";
 
@@ -37,8 +38,8 @@ export default function AddPatient() {
   const [classicModal, setClassicModal] = React.useState(false);
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required(),
-    age: Yup.number().required(),
+    name: Yup.string().min(4).max(50).required(),
+    age: Yup.number().max(120).required(),
   });
 
   const handleSubmit = async ({ name, age }) => {
@@ -98,7 +99,14 @@ export default function AddPatient() {
                     onSubmit={handleSubmit}
                     validationSchema={validationSchema}
                   >
-                    {({ handleChange, handleSubmit }) => (
+                    {({
+                      handleChange,
+                      handleSubmit,
+                      errors,
+                      touched,
+                      setFieldTouched,
+                      setFieldValue,
+                    }) => (
                       <form>
                         <CustomInput
                           labelText="Name..."
@@ -109,8 +117,20 @@ export default function AddPatient() {
                           inputProps={{
                             type: "text",
                             onChange: handleChange("name"),
+                            onBlur: () => setFieldTouched("name"),
                           }}
                         />
+
+                        {touched.name && (
+                          <Typography
+                            style={{
+                              color: "red",
+                              fontFamily: "monospace",
+                            }}
+                          >
+                            {errors.name}
+                          </Typography>
+                        )}
                         <CustomInput
                           labelText="Age"
                           id="age"
@@ -120,9 +140,17 @@ export default function AddPatient() {
                           inputProps={{
                             type: "text",
                             onChange: handleChange("age"),
+                            onBlur: () => setFieldTouched("age"),
                             autoComplete: "off",
                           }}
                         />
+                        {touched.age && (
+                          <Typography
+                            style={{ color: "red", fontFamily: "monospace" }}
+                          >
+                            {errors.age}
+                          </Typography>
+                        )}
                         <Button color="primary" onClick={handleSubmit}>
                           Add
                         </Button>

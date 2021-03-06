@@ -22,6 +22,7 @@ import image from "assets/img/bg2.jpg";
 import CustomInput from "components/CustomInput/CustomInput";
 import { InputAdornment, Typography } from "@material-ui/core";
 import { Email, VpnKey } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(styles);
 
@@ -171,6 +172,7 @@ export default function LoginPage(props) {
                               {errors.password}
                             </Typography>
                           )}
+                          <Link to="/forgetpassword">forget password?</Link>
                         </CardBody>
                         <CardFooter className={classes.cardFooter}>
                           <Button color="info" size="lg" onClick={handleSubmit}>

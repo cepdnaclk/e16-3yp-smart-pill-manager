@@ -1,6 +1,5 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
-
 const router = express.Router();
 
 const auth = require("../middleware/authorization");
@@ -14,7 +13,7 @@ router.get("/", auth, async (req, res) => {
   res.send(user.patients);
 });
 
-router.post("/", auth, async (req, res) => {
+router.post("/", async (req, res) => {
   const token = req.header("x-auth-token");
   const decoded = jwt.verify(token, "jwtPrivateKey");
 
@@ -26,7 +25,7 @@ router.post("/", auth, async (req, res) => {
     age: req.body.age,
   });
 
-  let user = await User.findOneAndUpdate(
+  await User.findOneAndUpdate(
     { deviceID: decoded.deviceID },
     { $push: { patients: patient } },
     { new: true }
