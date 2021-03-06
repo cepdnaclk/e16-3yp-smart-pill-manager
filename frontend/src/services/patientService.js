@@ -9,7 +9,10 @@ export function getPatients() {
 }
 
 export function addPatients(name, age) {
-  return axios.post(endPoint + "/patients", { name: name, age: age });
+  return axios.post(endPoint + "/patients", {
+    name: name,
+    age: age,
+  });
 }
 
 export function deletePatient(id) {

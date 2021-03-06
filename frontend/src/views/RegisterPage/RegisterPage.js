@@ -16,6 +16,12 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 import image from "assets/img/bg2.jpg";
@@ -26,6 +32,7 @@ const useStyles = makeStyles(styles);
 export default function RegisterPage(props) {
   const [cardAnimaton, setCardAnimation] = useState("cardHidden");
   const [serverError, setServerError] = useState("");
+  const [alertOpen, setAlertOpen] = useState(false);
 
   setTimeout(function () {
     setCardAnimation("");
@@ -35,22 +42,24 @@ export default function RegisterPage(props) {
   const validateSchema = Yup.object().shape({
     deviceID: Yup.string().required().label("Device ID"),
     username: Yup.string().required().label("Username"),
-    name: Yup.string().required().label("Name"),
     email: Yup.string().required().email().label("Email"),
     password: Yup.string().required().min(5).label("Password"),
   });
 
   const handleSubmit = async (userInfo) => {
     try {
-      const response = await register(userInfo);
-      const token = response.data;
-      localStorage.setItem("token", token);
-      window.location = "/patients";
+      await register(userInfo);
+      setAlertOpen(true);
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         setServerError(ex.response.data);
       }
     }
+  };
+
+  const goToLogin = () => {
+    setAlertOpen(false);
+    window.location = "/login-page";
   };
 
   return (
@@ -65,13 +74,41 @@ export default function RegisterPage(props) {
       >
         <div className={classes.container}>
           <GridContainer justify="center">
+            <div>
+              <Dialog
+                open={alertOpen}
+                //onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+              >
+                <DialogTitle id="alert-dialog-title">
+                  {"Account Activation Alert"}
+                </DialogTitle>
+                <DialogContent>
+                  <DialogContentText id="alert-dialog-description">
+                    Activation link was send to your email. Please verify it.
+                  </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <Button
+                    onClick={() => {
+                      goToLogin();
+                      //setAlertOpen(false);
+                    }}
+                    color="primary"
+                    autoFocus
+                  >
+                    OK
+                  </Button>
+                </DialogActions>
+              </Dialog>
+            </div>
             <GridItem xs={12} sm={12} md={5}>
               <Card className={classes[cardAnimaton]}>
                 <Formik
                   initialValues={{
                     deviceID: "",
                     email: "",
-                    name: "",
                     username: "",
                     password: "",
                   }}
@@ -127,31 +164,7 @@ export default function RegisterPage(props) {
                             {serverError}
                           </strong>
                         }
-                        <CustomInput
-                          labelText="Name..."
-                          id="name"
-                          error={errors.name && true}
-                          formControlProps={{
-                            fullWidth: true,
-                          }}
-                          inputProps={{
-                            type: "text",
-                            onChange: handleChange("name"),
-                            onBlur: () => setFieldTouched("name"),
-                            endAdornment: (
-                              <InputAdornment position="end">
-                                <People className={classes.inputIconsColor} />
-                              </InputAdornment>
-                            ),
-                          }}
-                        />
-                        {touched.name && (
-                          <strong
-                            style={{ color: "red", fontFamily: "monospace" }}
-                          >
-                            {errors.name}
-                          </strong>
-                        )}
+
                         <CustomInput
                           labelText="Device ID..."
                           id="deviceID"

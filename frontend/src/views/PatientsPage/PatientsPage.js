@@ -8,9 +8,14 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import CustomCard from "components/MyCard/Card";
 import IconButton from "@material-ui/core/IconButton";
-import { Delete, Check, Close } from "@material-ui/icons";
-import Alert from "@material-ui/lab/Alert";
-import Collapse from "@material-ui/core/Collapse";
+import { Delete } from "@material-ui/icons";
+
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
 
 import Footer from "components/Footer/Footer";
 
@@ -66,42 +71,43 @@ export default function PatientsPage(props) {
           <h2>Patients</h2>
         </div>
         <GridContainer>
-          <div style={{ width: "100%" }}>
-            <Collapse in={alertOpen}>
-              <Alert
-                variant="filled"
-                severity="error"
-                action={
-                  <>
-                    <IconButton
-                      style={{ marginRight: 20 }}
-                      aria-label="close"
-                      color="inherit"
-                      size="small"
-                      onClick={() => {
-                        handleDeletePatient();
-                        setAlertOpen(false);
-                      }}
-                    >
-                      <Check fontSize="inherit" />
-                    </IconButton>
-
-                    <IconButton
-                      aria-label="close"
-                      color="inherit"
-                      size="small"
-                      onClick={() => {
-                        setAlertOpen(false);
-                      }}
-                    >
-                      <Close fontSize="inherit" />
-                    </IconButton>
-                  </>
-                }
-              >
-                Do you want to delete Patient?
-              </Alert>
-            </Collapse>
+          <div>
+            <Dialog
+              open={alertOpen}
+              //onClose={handleClose}
+              aria-labelledby="alert-dialog-title"
+              aria-describedby="alert-dialog-description"
+            >
+              <DialogTitle id="alert-dialog-title">
+                {"Do you realy want to delete this patient?"}
+              </DialogTitle>
+              <DialogContent>
+                <DialogContentText id="alert-dialog-description">
+                  If you click the accept button, this patient will remove from
+                  the equation forever.
+                </DialogContentText>
+              </DialogContent>
+              <DialogActions>
+                <Button
+                  onClick={() => {
+                    setAlertOpen(false);
+                  }}
+                  color="primary"
+                >
+                  Decline
+                </Button>
+                <Button
+                  onClick={() => {
+                    handleDeletePatient();
+                    setAlertOpen(false);
+                  }}
+                  color="primary"
+                  autoFocus
+                >
+                  Accept
+                </Button>
+              </DialogActions>
+            </Dialog>
           </div>
           <AddPatient />
           {patients.map((p) => (

@@ -11,7 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
-import profile from "assets/img/faces/christian.jpg";
+import profile from "assets/img/faces/kendall.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
