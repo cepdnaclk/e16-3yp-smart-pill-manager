@@ -14,6 +14,7 @@ import Logout from "views/Logout";
 import Header from "./components/Header/Header";
 import HeaderLinks from "./components/Header/HeaderLinks";
 import NotFound from "views/NotFound";
+import VerifiedAccount from "views/VerifiedAccount";
 
 class App extends Component {
   state = {};
@@ -47,6 +48,7 @@ class App extends Component {
           <Route path="/login-page" component={LoginPage} />
           <Route path="/register-page" component={RegisterPage} />
           <Route path="/forgetpassword" component={ForgetPasswordPage} />
+          <Route path="/forward-email/:token" component={VerifiedAccount} />
           <Route path="/logout" component={Logout} />
           <Route
             path="/profile-page"

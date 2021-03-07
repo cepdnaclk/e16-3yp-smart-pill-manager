@@ -30,8 +30,8 @@ export default function LoginPage(props) {
   }, 800);
   const classes = useStyles();
 
-  const handleSubmit = (e) => {
-    console.log(e);
+  const handleSubmit = ({ deviceID }) => {
+    console.log(deviceID);
   };
 
   //   const errorStyle = {
