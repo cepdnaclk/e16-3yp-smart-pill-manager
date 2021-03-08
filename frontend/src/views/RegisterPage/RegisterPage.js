@@ -59,7 +59,9 @@ export default function RegisterPage(props) {
         "jwtPrivateKey"
       );
 
-      const link = `http://localhost:3000/forward-email/${token}`;
+      const endPoint = process.env.REACT_APP_FRONTEND_ENDPOINT;
+
+      const link = `${endPoint}forward-email/${token}`;
 
       const senderInfo = {
         subject: "SPM: Account Verification ✔",
