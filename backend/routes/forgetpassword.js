@@ -1,7 +1,6 @@
 const { User } = require("../models/user");
 const { Device } = require("../models/device");
 const express = require("express");
-const { emailSender } = require("../middleware/emailSender");
 
 const router = express.Router();
 
@@ -20,10 +19,10 @@ router.post("/", async (req, res) => {
     if (!user)
       return res.status(400).send("You haven't account from this device ID");
 
-    const device_id = req.body.deviceID;
+    if (req.body.email != user.email)
+      return res.status(400).send("Email is not registered email");
 
-    emailSender(device_id, "eng.isurulakshan@gmail.com");
-    res.send(`Sent email to ${user.email}`);
+    res.send(true);
   } catch (ex) {
     console.log(ex);
   }

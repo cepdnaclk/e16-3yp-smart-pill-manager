@@ -7,6 +7,7 @@ export default function VerifiedAccount({ match }) {
   const handleClick = async () => {
     await accountVerify(match.params.token);
     alert("Your account is verified successfully.");
+    window.location = "login-page";
   };
 
   return (

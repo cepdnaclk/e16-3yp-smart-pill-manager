@@ -84,8 +84,6 @@ export default function RegisterPage(props) {
           }
         );
 
-      //emailSender(userInfo.deviceID, userInfo.email, subject, output);
-
       setAlertOpen(true);
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {

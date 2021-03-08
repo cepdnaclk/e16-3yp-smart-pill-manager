@@ -7,6 +7,11 @@ const router = express.Router();
 router.put("/:token", async (req, res) => {
   const decoded = jwt.verify(req.params.token, "jwtPrivateKey");
 
+  if (req.body.password != req.body.cpassword)
+    return res
+      .status(400)
+      .send("password and confirm password should be same.");
+
   const salt = await bcrypt.genSalt(10);
   const hashPassword = await bcrypt.hash(req.body.password, salt);
 
