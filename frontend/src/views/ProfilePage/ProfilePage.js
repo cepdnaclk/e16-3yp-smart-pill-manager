@@ -14,7 +14,7 @@ import GridItem from "components/Grid/GridItem.js";
 
 import Parallax from "components/Parallax/Parallax.js";
 
-import profile from "assets/img/faces/christian.jpg";
+import profile from "assets/img/faces/newprofile.jpg";
 
 import styles from "assets/jss/material-kit-react/views/profilePage.js";
 
@@ -49,6 +49,7 @@ export default function ProfilePage() {
   const handleDeleteAccount = async () => {
     await deleteAccount(token);
     alert("Account deleted successfully.");
+    localStorage.removeItem("token");
     window.location = "/login-page";
   };
 

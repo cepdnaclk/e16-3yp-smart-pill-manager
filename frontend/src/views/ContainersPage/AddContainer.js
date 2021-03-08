@@ -46,7 +46,6 @@ export default function AddContainer() {
     medicine: Yup.string().required(),
     endDate: Yup.date().required(),
     morningPills: Yup.number(),
-    noOfPills: Yup.number().required(),
   });
 
   const handleSubmit = async (info) => {
@@ -75,7 +74,7 @@ export default function AddContainer() {
       startDate: info.startDate,
       endDate: info.endDate,
       routine: routineArray,
-      noOfPills: info.noOfPills,
+      noOfPills: 20,
       isFull: true,
     };
 
@@ -150,7 +149,6 @@ export default function AddContainer() {
                       morningPills: 0,
                       afternoonPills: 0,
                       eveningPills: 0,
-                      noOfPills: 0,
                     }}
                     onSubmit={handleSubmit}
                     validationSchema={validationSchema}
@@ -302,18 +300,6 @@ export default function AddContainer() {
                           </GridItem>
                         </GridContainer>
 
-                        <CustomInput
-                          labelText="No of Pills..."
-                          id="noOfPills"
-                          formControlProps={{
-                            fullWidth: true,
-                          }}
-                          inputProps={{
-                            type: "text",
-                            onChange: handleChange("noOfPills"),
-                            autoComplete: "off",
-                          }}
-                        />
                         <Button color="danger" onClick={handleSubmit}>
                           Add Container
                         </Button>
