@@ -16,6 +16,7 @@ import Header from "./components/Header/Header";
 import HeaderLinks from "./components/Header/HeaderLinks";
 import NotFound from "views/NotFound";
 import VerifiedAccount from "views/VerifiedAccount";
+import "aos/dist/aos.css";
 
 class App extends Component {
   state = {};

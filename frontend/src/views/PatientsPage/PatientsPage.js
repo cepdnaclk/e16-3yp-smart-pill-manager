@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import AOS from "aos";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -26,6 +27,7 @@ import AddPatient from "./AddPatient";
 import UpdatePatient from "./UpdatePatient";
 import { getPatients, deletePatient } from "../../services/patientService";
 
+AOS.init();
 const useStyles = makeStyles(styles);
 
 export default function PatientsPage(props) {
@@ -118,7 +120,12 @@ export default function PatientsPage(props) {
               xs={12}
               md={4}
             >
-              <CustomCard name={p.name} age={p.age} letter={p.name[0]}>
+              <CustomCard
+                name={p.name}
+                age={p.age}
+                letter={p.name[0]}
+                data-aos="zoom-in"
+              >
                 <UpdatePatient patient={p} />
                 <IconButton
                   color="secondary"

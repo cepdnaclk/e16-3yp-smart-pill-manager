@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { login } from "../../services/userService";
+import AOS from "aos";
 
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -24,15 +25,13 @@ import { InputAdornment, Typography } from "@material-ui/core";
 import { Email, VpnKey } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
+AOS.init();
+
 const useStyles = makeStyles(styles);
 
 export default function LoginPage(props) {
-  const [cardAnimaton, setCardAnimation] = useState("cardHidden");
   const [serverError, setserverError] = useState("");
 
-  setTimeout(function () {
-    setCardAnimation("");
-  }, 800);
   const classes = useStyles();
 
   const validateSchema = Yup.object().shape({
@@ -72,7 +71,7 @@ export default function LoginPage(props) {
         <div className={classes.container}>
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={5}>
-              <Card className={classes[cardAnimaton]}>
+              <Card data-aos="fade-down" data-aos-duration="2000">
                 <form className={classes.form}>
                   <CardHeader color="info" className={classes.cardHeader}>
                     <h4>LOGIN</h4>
@@ -172,7 +171,15 @@ export default function LoginPage(props) {
                               {errors.password}
                             </Typography>
                           )}
-                          <Link to="/forgetpassword">forget password?</Link>
+                          <Link to="/forgetpassword">
+                            <p
+                              style={{
+                                color: "#af3242",
+                              }}
+                            >
+                              forget password?
+                            </p>
+                          </Link>
                         </CardBody>
                         <CardFooter className={classes.cardFooter}>
                           <Button color="info" size="lg" onClick={handleSubmit}>

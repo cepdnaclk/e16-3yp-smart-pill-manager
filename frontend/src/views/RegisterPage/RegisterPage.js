@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { register } from "../../services/userService";
 import emailjs from "emailjs-com";
 import { sign } from "jsonwebtoken";
+import AOS from "aos";
 
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -29,16 +30,13 @@ import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import image from "assets/img/bg2.jpg";
 import { ConfirmationNumber, Lock, Email, People } from "@material-ui/icons";
 
+AOS.init();
 const useStyles = makeStyles(styles);
 
 export default function RegisterPage(props) {
-  const [cardAnimaton, setCardAnimation] = useState("cardHidden");
   const [serverError, setServerError] = useState("");
   const [alertOpen, setAlertOpen] = useState(false);
 
-  setTimeout(function () {
-    setCardAnimation("");
-  }, 700);
   const classes = useStyles();
 
   const validateSchema = Yup.object().shape({
@@ -141,7 +139,7 @@ export default function RegisterPage(props) {
               </Dialog>
             </div>
             <GridItem xs={12} sm={12} md={5}>
-              <Card className={classes[cardAnimaton]}>
+              <Card data-aos="fade-down" data-aos-duration="2000">
                 <Formik
                   initialValues={{
                     deviceID: "",
