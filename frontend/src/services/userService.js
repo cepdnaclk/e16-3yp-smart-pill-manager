@@ -17,3 +17,14 @@ export function login(email, password) {
     password: password,
   });
 }
+
+export function clearHistory() {
+  return axios.delete(endPoint + "/history");
+}
+export function deleteAccount(token) {
+  return axios.delete(endPoint + "/register/" + token);
+}
+
+export function getHistory() {
+  return axios.get(endPoint + "/history");
+}

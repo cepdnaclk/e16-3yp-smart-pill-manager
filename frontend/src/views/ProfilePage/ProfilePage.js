@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { clearHistory, deleteAccount } from "../../services/userService";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 
@@ -6,9 +7,6 @@ import jwtDecode from "jwt-decode";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
-// core components
-
 import Footer from "components/Footer/Footer.js";
 import Button from "components/CustomButtons/Button.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -39,6 +37,21 @@ export default function ProfilePage() {
     classes.imgFluid
   );
 
+  const token = localStorage.getItem("token");
+
+  const handleChangePassword = () => {
+    window.location = "/change-password/" + token;
+  };
+  const handleClearHistory = async () => {
+    await clearHistory();
+    alert("History is cleared.");
+  };
+  const handleDeleteAccount = async () => {
+    await deleteAccount(token);
+    alert("Account deleted successfully.");
+    window.location = "/login-page";
+  };
+
   return (
     <div>
       <Parallax small filter image={require("assets/img/profile-bg.jpg")} />
@@ -64,11 +77,36 @@ export default function ProfilePage() {
                       <i className={"fab fa-facebook"} />
                     </Button>
                   </div>
+                  <div className={classes.name} style={{ paddingTop: 80 }}>
+                    <h4>More Functions</h4>
+                    <Button
+                      color="success"
+                      className={classes.margin5}
+                      onClick={handleChangePassword}
+                    >
+                      change password
+                    </Button>
+                    <Button
+                      color="primary"
+                      className={classes.margin5}
+                      onClick={handleClearHistory}
+                    >
+                      clear history
+                    </Button>
+                    <Button
+                      color="danger"
+                      className={classes.margin5}
+                      onClick={handleDeleteAccount}
+                    >
+                      delete account
+                    </Button>
+                  </div>
                 </div>
               </GridItem>
             </GridContainer>
             <div className={classes.description}>
               <p>I'm owner of the this smart pill manager device.</p>
+              <p>DEVICE ID : {user.deviceID}</p>
             </div>
           </div>
         </div>

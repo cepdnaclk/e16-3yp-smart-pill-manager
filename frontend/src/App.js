@@ -11,11 +11,13 @@ import PatientsPage from "views/PatientsPage/PatientsPage";
 import ContainersPage from "views/ContainersPage/ContainersPage";
 import ForgetPasswordPage from "views/ForgetPasswordPage/ForgetPasswordPage";
 import ChangePasswordPage from "views/ChangePasswordPage/ChangePasswordPage";
+import HistoryPage from "views/HistoryPage/HistoryPage";
 import Logout from "views/Logout";
 import Header from "./components/Header/Header";
 import HeaderLinks from "./components/Header/HeaderLinks";
 import NotFound from "views/NotFound";
 import VerifiedAccount from "views/VerifiedAccount";
+import "aos/dist/aos.css";
 
 class App extends Component {
   state = {};
@@ -48,6 +50,7 @@ class App extends Component {
           <Route path="/landing-page" component={LandingPage} />
           <Route path="/login-page" component={LoginPage} />
           <Route path="/register-page" component={RegisterPage} />
+          <Route path="/history-page" component={HistoryPage} />
           <Route path="/forgetpassword" component={ForgetPasswordPage} />
           <Route path="/forward-email/:token" component={VerifiedAccount} />
           <Route

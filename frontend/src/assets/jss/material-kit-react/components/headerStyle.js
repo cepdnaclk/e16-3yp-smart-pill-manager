@@ -136,7 +136,7 @@ const headerStyle = {
     position: "fixed",
     display: "block",
     color: "white",
-    backgroundColor: "#425b77",
+    backgroundColor: "rgba(0, 0, 48, 0.8)",
     top: "0",
     height: "100vh",
     right: "0",

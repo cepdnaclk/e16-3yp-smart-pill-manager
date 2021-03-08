@@ -16,6 +16,7 @@ import profile from "assets/img/faces/kendall.jpg";
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
+    boxShadow: "0 0 30px #fff,0 0 20px tomato",
   },
   media: {
     height: 0,

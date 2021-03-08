@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import AOS from "aos";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -26,6 +27,7 @@ import AddPatient from "./AddPatient";
 import UpdatePatient from "./UpdatePatient";
 import { getPatients, deletePatient } from "../../services/patientService";
 
+AOS.init();
 const useStyles = makeStyles(styles);
 
 export default function PatientsPage(props) {
@@ -79,12 +81,12 @@ export default function PatientsPage(props) {
               aria-describedby="alert-dialog-description"
             >
               <DialogTitle id="alert-dialog-title">
-                {"Do you realy want to delete this patient?"}
+                {"Do you want to delete this patient?"}
               </DialogTitle>
               <DialogContent>
                 <DialogContentText id="alert-dialog-description">
-                  If you click the accept button, this patient will remove from
-                  the equation forever.
+                  If you click the accept button,this patient and the allocated
+                  containers for him will be deleted.
                 </DialogContentText>
               </DialogContent>
               <DialogActions>
@@ -118,7 +120,12 @@ export default function PatientsPage(props) {
               xs={12}
               md={4}
             >
-              <CustomCard name={p.name} age={p.age} letter={p.name[0]}>
+              <CustomCard
+                name={p.name}
+                age={p.age}
+                letter={p.name[0]}
+                data-aos="zoom-in"
+              >
                 <UpdatePatient patient={p} />
                 <IconButton
                   color="secondary"
@@ -131,7 +138,7 @@ export default function PatientsPage(props) {
           ))}
         </GridContainer>
       </div>
-      <Footer />
+      {patients.length >= 1 && <Footer />}
     </div>
   );
 }

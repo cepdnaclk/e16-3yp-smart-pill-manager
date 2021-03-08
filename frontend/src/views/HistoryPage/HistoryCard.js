@@ -1,16 +1,14 @@
-import ContainerDetails from "./ContainerDetails";
+import ContainerDetails from "../ContainersPage/ContainerDetails";
 import React from "react";
 import "../../assets/css/card.css";
 
-function ContainerCard({
+function HistoryCard({
   medicine,
   startDate,
   endDate,
   patientID,
   containerID,
-  noOfPills,
   routine,
-  onDelete,
 }) {
   return (
     <div className="card-container">
@@ -35,16 +33,10 @@ function ContainerCard({
           containerID={containerID}
           patientID={patientID}
           routine={routine}
-          noOfPills={noOfPills}
         />
-      </div>
-      <div className="card-delete">
-        <button className="card-btn btn-delete" onClick={onDelete}>
-          delete
-        </button>
       </div>
     </div>
   );
 }
 
-export default ContainerCard;
+export default HistoryCard;
