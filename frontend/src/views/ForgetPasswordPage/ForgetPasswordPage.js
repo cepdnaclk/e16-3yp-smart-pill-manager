@@ -44,7 +44,9 @@ export default function ForgetPasswordPage(props) {
         "jwtPrivateKey"
       );
 
-      const link = `http://localhost:3000/change-password/${token}`;
+      const endPoint = process.env.REACT_APP_FRONTEND_ENDPOINT;
+
+      const link = `${endPoint}change-password/${token}`;
 
       const senderInfo = {
         subject: "SPM: Reset Password",
