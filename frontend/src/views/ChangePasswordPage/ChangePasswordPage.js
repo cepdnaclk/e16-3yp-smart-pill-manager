@@ -2,9 +2,7 @@ import React, { useState } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import { Formik } from "formik";
-import { checkDeviceIDAndEmail } from "../../services/passwordChangeService";
-import emailjs from "emailjs-com";
-import { sign } from "jsonwebtoken";
+import { changePassword } from "../../services/passwordChangeService";
 
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -23,7 +21,7 @@ import CustomInput from "components/CustomInput/CustomInput";
 
 const useStyles = makeStyles(styles);
 
-export default function ForgetPasswordPage(props) {
+export default function ChangePasswordPage({ match }) {
   const [cardAnimaton, setCardAnimation] = useState("cardHidden");
 
   const [serverError, setServerError] = useState("");
@@ -33,45 +31,15 @@ export default function ForgetPasswordPage(props) {
   }, 800);
   const classes = useStyles();
 
-  const handleSubmit = async ({ deviceID, email }) => {
+  const handleSubmit = async ({ password, cpassword }) => {
     try {
-      await checkDeviceIDAndEmail(deviceID, email);
-
-      const token = sign(
-        {
-          deviceID: deviceID,
-        },
-        "jwtPrivateKey"
-      );
-
-      const link = `http://localhost:3000/change-password/${token}`;
-
-      const senderInfo = {
-        subject: "SPM: Reset Password",
-        output: "Forget Password?",
-        link: link,
-        email: email,
-      };
-
-      emailjs
-        .send(
-          "service_hem270e",
-          "template_rbx6gmm",
-          senderInfo,
-          "user_fsFQHDXBhdP1v3CEiiGJ0"
-        )
-        .then(
-          (result) => {
-            alert("Reset password email is sent.Check your email");
-          },
-          (error) => {
-            alert(error.text);
-          }
-        );
+      const token = match.params.token;
+      await changePassword(token, password, cpassword);
+      alert("Password changed.");
+      window.location = "/login-page";
     } catch (ex) {
-      if (ex.response && ex.response.status === 400) {
+      if (ex.response && ex.response.status === 400)
         setServerError(ex.response.data);
-      }
     }
   };
 
@@ -96,12 +64,12 @@ export default function ForgetPasswordPage(props) {
             <GridItem xs={12} sm={12} md={5}>
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
-                  <CardHeader color="success" className={classes.cardHeader}>
-                    <h4>Forget Password?</h4>
+                  <CardHeader color="primary" className={classes.cardHeader}>
+                    <h4>Change Password</h4>
                   </CardHeader>
 
                   <Formik
-                    initialValues={{ deviceID: "", email: "" }}
+                    initialValues={{ password: "", cpassword: "" }}
                     onSubmit={handleSubmit}
                   >
                     {({ handleChange, handleSubmit }) => (
@@ -109,35 +77,35 @@ export default function ForgetPasswordPage(props) {
                         <CardBody>
                           <p style={errorStyle}>{serverError}</p>
                           <CustomInput
-                            labelText="Your Device ID..."
-                            id="deviceID"
+                            labelText="Password..."
+                            id="password"
                             formControlProps={{
                               fullWidth: true,
                             }}
                             inputProps={{
-                              type: "text",
-                              onChange: handleChange("deviceID"),
+                              type: "password",
+                              onChange: handleChange("password"),
                             }}
                           />
                           <CustomInput
-                            labelText="Email..."
-                            id="email"
+                            labelText="Confirm Password..."
+                            id="cpassword"
                             formControlProps={{
                               fullWidth: true,
                             }}
                             inputProps={{
-                              type: "text",
-                              onChange: handleChange("email"),
+                              type: "password",
+                              onChange: handleChange("cpassword"),
                             }}
                           />
                         </CardBody>
                         <CardFooter className={classes.cardFooter}>
                           <Button
-                            color="success"
+                            color="primary"
                             size="lg"
                             onClick={handleSubmit}
                           >
-                            Confirm
+                            change password
                           </Button>
                         </CardFooter>
                       </>
