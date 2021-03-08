@@ -60,6 +60,11 @@ router.post("/", auth, async (req, res) => {
     { $push: { containers: container } },
     { new: true }
   );
+  await User.findOneAndUpdate(
+    { deviceID: decoded.deviceID },
+    { $push: { history: container } },
+    { new: true }
+  );
 
   return res.send("container added successfully...");
 });
@@ -89,6 +94,38 @@ router.delete("/:id", auth, async (req, res) => {
   );
 
   res.send(`deleted ${req.params.id}`);
+});
+
+router.put("/:id", auth, async (req, res) => {
+  const token = req.header("x-auth-token");
+  const decoded = jwt.verify(token, "jwtPrivateKey");
+
+  const { error } = validateContainer(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  let user = await User.findOne({ email: decoded.email });
+
+  let containers = user.containers;
+  const container = containers.find((p) => p._id == req.params.id);
+
+  if (!container)
+    return res
+      .status(404)
+      .send("The container with the given ID was not found.");
+
+  await User.updateOne(
+    { deviceID: decoded.deviceID, "containers._id": req.params.id },
+    {
+      $set: {
+        "containers.$.containerID": req.body.containerID,
+        "containers.$.startDate": req.body.startDate,
+        "containers.$.endDate": req.body.endDate,
+        "containers.$.medicine": req.body.medicine,
+        "containers.$.noOfPills": req.body.noOfPills,
+      },
+    }
+  );
+  res.send("updated successfully");
 });
 
 module.exports = router;

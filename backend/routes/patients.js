@@ -94,9 +94,7 @@ router.delete("/:id", auth, async (req, res) => {
     }
   );
 
-  //res.send(`deleted ${req.params.id}`);
-
-  res.send(containers);
+  res.send(`deleted ${req.params.id} and his all containers`);
 });
 
 router.get("/:id", auth, async (req, res) => {

@@ -30,6 +30,10 @@ const userSchema = new mongoose.Schema({
     type: [containerSchema],
   },
 
+  history: {
+    type: [containerSchema],
+  },
+
   password: {
     type: String,
     required: true,
