@@ -31,7 +31,6 @@ export default function ContainerDetails({
   endDate,
   patientID,
   containerID,
-  noOfPills,
   routine,
 }) {
   const classes = useStyles();
@@ -112,9 +111,6 @@ export default function ContainerDetails({
                   <Typography color="secondary">
                     EVENING TIME: {routine[2].time} {"  "} EVENING PILLS:{" "}
                     {routine[2].pills}
-                  </Typography>
-                  <Typography color="primary" component="h5" variant="h5">
-                    TOTAL MEDICINE PILLS : {noOfPills}
                   </Typography>
                 </DialogContent>
               </Dialog>

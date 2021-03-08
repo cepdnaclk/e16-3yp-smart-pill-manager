@@ -8,7 +8,6 @@ function ContainerCard({
   endDate,
   patientID,
   containerID,
-  noOfPills,
   routine,
   onDelete,
 }) {
@@ -35,7 +34,6 @@ function ContainerCard({
           containerID={containerID}
           patientID={patientID}
           routine={routine}
-          noOfPills={noOfPills}
         />
       </div>
       <div className="card-delete">

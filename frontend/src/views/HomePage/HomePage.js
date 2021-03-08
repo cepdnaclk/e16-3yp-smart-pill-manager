@@ -58,6 +58,7 @@ export default function HomePage(props) {
                   className={classes.subtitle}
                   data-aos="fade-up"
                   data-aos-duration="2000"
+                  style={{ color: "rgba(0,0,10, 0.8)", fontWeight: 600 }}
                 >
                   Get Medicine Without Tears!
                 </h3>
