@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { register } from "../../services/userService";
+import emailjs from "emailjs-com";
+import { sign } from "jsonwebtoken";
 
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -49,6 +51,41 @@ export default function RegisterPage(props) {
   const handleSubmit = async (userInfo) => {
     try {
       await register(userInfo);
+
+      const token = sign(
+        {
+          deviceID: userInfo.deviceID,
+        },
+        "jwtPrivateKey"
+      );
+
+      const link = `http://localhost:3000/forward-email/${token}`;
+
+      const senderInfo = {
+        subject: "SPM: Account Verification ✔",
+        output: "Please click on below link to activate your account",
+        link: link,
+        email: userInfo.email,
+      };
+
+      emailjs
+        .send(
+          "service_hem270e",
+          "template_rbx6gmm",
+          senderInfo,
+          "user_fsFQHDXBhdP1v3CEiiGJ0"
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+
+      //emailSender(userInfo.deviceID, userInfo.email, subject, output);
+
       setAlertOpen(true);
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {

@@ -1,17 +1,20 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
+import "../assets/css/acc-verified.css";
 
-export default function VerifiedAccount(props) {
-  const handleClick = () => {
-    console.log(props);
+import { accountVerify } from "../services/accountVerifyService";
+
+export default function VerifiedAccount({ match }) {
+  const handleClick = async () => {
+    await accountVerify(match.params.token);
+    alert("Your account is verified successfully.");
   };
 
   return (
-    <div>
-      <h1>If you want to verify your account?</h1>
-      <Button variant="text" color="inherit" onClick={handleClick}>
+    <div className="container">
+      <h2 className="title">If you want to verify your account?</h2>
+      <button className="btn" onClick={handleClick}>
         Click Me
-      </Button>
+      </button>
     </div>
   );
 }
