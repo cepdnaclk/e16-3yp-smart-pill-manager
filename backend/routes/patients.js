@@ -48,7 +48,7 @@ router.put("/:id", auth, async (req, res) => {
   const patient = patients.find((p) => p._id == req.params.id);
 
   if (!patient)
-    return res.status(404).send("The genre with the given ID was not found.");
+    return res.status(404).send("The patient with the given ID was not found.");
 
   await User.updateOne(
     { deviceID: decoded.deviceID, "patients._id": req.params.id },
@@ -72,7 +72,12 @@ router.delete("/:id", auth, async (req, res) => {
   const patient = patients.find((p) => p._id == req.params.id);
 
   if (!patient)
-    return res.status(404).send("The genre with the given ID was not found.");
+    return res.status(404).send("The patient with the given ID was not found.");
+
+  let containers = user.containers;
+  containers = containers.filter(
+    (container) => container.patientID != req.params.id
+  );
 
   await User.updateOne(
     {
@@ -83,10 +88,15 @@ router.delete("/:id", auth, async (req, res) => {
       $pull: {
         patients: { _id: req.params.id },
       },
+      $set: {
+        containers: containers,
+      },
     }
   );
 
-  res.send(`deleted ${req.params.id}`);
+  //res.send(`deleted ${req.params.id}`);
+
+  res.send(containers);
 });
 
 router.get("/:id", auth, async (req, res) => {
