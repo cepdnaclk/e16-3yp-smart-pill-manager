@@ -5,7 +5,6 @@ const bcrypt = require("bcrypt");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
 
-
 router.post("/", async (req, res) => {
   res.header["Access-Control-Allow-Origin"] = "*";
   const { error } = validate(req.body);
@@ -36,13 +35,21 @@ router.post("/", async (req, res) => {
 
     await user.save();
 
-   
     const tokenAuth = user.generateAuthToken();
     res.send(tokenAuth);
-
   } catch (ex) {
     console.log(ex);
   }
+});
+
+router.delete("/:token", async (req, res) => {
+  const decoded = jwt.verify(req.params.token, "jwtPrivateKey");
+
+  await User.deleteOne({
+    deviceID: decoded.deviceID,
+  });
+
+  res.send("user is delelted successfully");
 });
 
 module.exports = router;

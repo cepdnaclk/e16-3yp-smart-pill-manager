@@ -29,7 +29,9 @@ export default function ContainersPage(props) {
   useEffect(() => {
     async function getC() {
       const response = await getContainers();
-      setContainers(response.data);
+      var new_containers = response.data;
+      new_containers.sort((a, b) => a.containerID - b.containerID);
+      setContainers(new_containers);
     }
     getC();
   }, []);

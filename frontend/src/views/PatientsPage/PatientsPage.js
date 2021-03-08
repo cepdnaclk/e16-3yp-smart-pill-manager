@@ -81,12 +81,12 @@ export default function PatientsPage(props) {
               aria-describedby="alert-dialog-description"
             >
               <DialogTitle id="alert-dialog-title">
-                {"Do you realy want to delete this patient?"}
+                {"Do you want to delete this patient?"}
               </DialogTitle>
               <DialogContent>
                 <DialogContentText id="alert-dialog-description">
-                  If you click the accept button, this patient will remove from
-                  the equation forever.
+                  If you click the accept button,this patient and the allocated
+                  containers for him will be deleted.
                 </DialogContentText>
               </DialogContent>
               <DialogActions>
@@ -138,7 +138,7 @@ export default function PatientsPage(props) {
           ))}
         </GridContainer>
       </div>
-      <Footer />
+      {patients.length >= 1 && <Footer />}
     </div>
   );
 }

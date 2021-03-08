@@ -15,4 +15,18 @@ router.get("/", auth, async (req, res) => {
   res.send(user.history);
 });
 
+router.delete("/", auth, async (req, res) => {
+  const token = req.header("x-auth-token");
+  const decoded = jwt.verify(token, "jwtPrivateKey");
+
+  await User.updateOne(
+    { deviceID: decoded.deviceID },
+    {
+      $set: { history: [] },
+    }
+  );
+
+  res.send("history is cleared successfully.");
+});
+
 module.exports = router;
