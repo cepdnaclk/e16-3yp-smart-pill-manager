@@ -1,6 +1,5 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
-
 const router = express.Router();
 
 const auth = require("../middleware/authorization");
@@ -14,7 +13,7 @@ router.get("/", auth, async (req, res) => {
   res.send(user.patients);
 });
 
-router.post("/", auth, async (req, res) => {
+router.post("/", async (req, res) => {
   const token = req.header("x-auth-token");
   const decoded = jwt.verify(token, "jwtPrivateKey");
 
@@ -26,7 +25,7 @@ router.post("/", auth, async (req, res) => {
     age: req.body.age,
   });
 
-  let user = await User.findOneAndUpdate(
+  await User.findOneAndUpdate(
     { deviceID: decoded.deviceID },
     { $push: { patients: patient } },
     { new: true }
@@ -49,7 +48,7 @@ router.put("/:id", auth, async (req, res) => {
   const patient = patients.find((p) => p._id == req.params.id);
 
   if (!patient)
-    return res.status(404).send("The genre with the given ID was not found.");
+    return res.status(404).send("The patient with the given ID was not found.");
 
   await User.updateOne(
     { deviceID: decoded.deviceID, "patients._id": req.params.id },
@@ -73,7 +72,12 @@ router.delete("/:id", auth, async (req, res) => {
   const patient = patients.find((p) => p._id == req.params.id);
 
   if (!patient)
-    return res.status(404).send("The genre with the given ID was not found.");
+    return res.status(404).send("The patient with the given ID was not found.");
+
+  let containers = user.containers;
+  containers = containers.filter(
+    (container) => container.patientID != req.params.id
+  );
 
   await User.updateOne(
     {
@@ -84,10 +88,13 @@ router.delete("/:id", auth, async (req, res) => {
       $pull: {
         patients: { _id: req.params.id },
       },
+      $set: {
+        containers: containers,
+      },
     }
   );
 
-  res.send(`deleted ${req.params.id}`);
+  res.send(`deleted ${req.params.id} and his all containers`);
 });
 
 router.get("/:id", auth, async (req, res) => {

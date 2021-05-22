@@ -1,0 +1,38 @@
+.container {
+  width: 60vw;
+  height: 500px;
+  margin: 100px;
+  border: 0;
+  border-radius: 30px;
+  position: relative;
+  left: 30vw;
+  top: 100px;
+}
+
+.title {
+  padding: 20px;
+}
+
+.btn {
+  background-color: rgba(212, 28, 28, 0.9);
+  color: white;
+  width: 100px;
+  height: 50px;
+  border: 0;
+  border-radius: 10px;
+  box-sizing: unset;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 1px;
+  position: relative;
+  left: 10vw;
+  top: 20px;
+  outline: 0;
+  padding: 0;
+  text-transform: uppercase;
+  transition: background-color 0.5s;
+}
+
+.btn:hover {
+  background-color: rgba(212, 28, 28, 1);
+}

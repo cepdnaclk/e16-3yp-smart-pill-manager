@@ -8,6 +8,10 @@ const userRegister = require("./routes/register");
 const userLogin = require("./routes/login");
 const patients = require("./routes/patients");
 const containers = require("./routes/containers");
+const activate = require("./routes/activation");
+const forgetPassword = require("./routes/forgetpassword");
+const changePassword = require("./routes/changepassword");
+const history = require("./routes/history");
 
 app.use(cors());
 app.use(express.json());
@@ -15,6 +19,10 @@ app.use("/api/register", userRegister);
 app.use("/api/login", userLogin);
 app.use("/api/patients", patients);
 app.use("/api/container", containers);
+app.use("/api/activate", activate);
+app.use("/api/forgetpassword", forgetPassword);
+app.use("/api/changepassword", changePassword);
+app.use("/api/history", history);
 
 const db = config.get("db");
 

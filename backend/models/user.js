@@ -12,7 +12,6 @@ const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
-    unique: true,
   },
   email: {
     type: String,
@@ -30,16 +29,25 @@ const userSchema = new mongoose.Schema({
     type: [containerSchema],
   },
 
+  history: {
+    type: [containerSchema],
+  },
+
   password: {
     type: String,
     required: true,
     min: 5,
     max: 1024,
   },
+
+  isVerified: { type: Boolean, default: false },
 });
 
 userSchema.methods.generateAuthToken = function () {
-  const token = jwt.sign({ deviceID: this.deviceID, username: this.username, email:this.email }, "jwtPrivateKey");
+  const token = jwt.sign(
+    { deviceID: this.deviceID, username: this.username, email: this.email },
+    "jwtPrivateKey"
+  );
   return token;
 };
 

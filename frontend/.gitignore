@@ -24,4 +24,4 @@ yarn-error.log*
 # package
 /dist
 # compiled css
-*.css
+

@@ -1,12 +1,6 @@
 import React from "react";
-// nodejs library that concatenates classes
 import classNames from "classnames";
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-
-// @material-ui/icons
-
-// core components
 
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -33,7 +27,9 @@ export default function LandingPage(props) {
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>Had trouble setting up?? Don't Worry....</h1>
+              <h1 className={classes.title}>
+                Had trouble setting up?? Don't Worry....
+              </h1>
               <h4>
                 If you can't understand how to configure smart pill manager
                 device. Please watch the video.

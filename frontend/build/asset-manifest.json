@@ -1,19 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.c5a3ee5c.chunk.css",
-    "main.js": "/static/js/main.8f21beea.chunk.js",
-    "main.js.map": "/static/js/main.8f21beea.chunk.js.map",
+    "main.css": "/static/css/main.111dcae4.chunk.css",
+    "main.js": "/static/js/main.a001bef6.chunk.js",
+    "main.js.map": "/static/js/main.a001bef6.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.47788c5d.js",
     "runtime-main.js.map": "/static/js/runtime-main.47788c5d.js.map",
-    "static/js/2.5dbab27d.chunk.js": "/static/js/2.5dbab27d.chunk.js",
-    "static/js/2.5dbab27d.chunk.js.map": "/static/js/2.5dbab27d.chunk.js.map",
+    "static/css/2.4707e12a.chunk.css": "/static/css/2.4707e12a.chunk.css",
+    "static/js/2.8d8f2d6b.chunk.js": "/static/js/2.8d8f2d6b.chunk.js",
+    "static/js/2.8d8f2d6b.chunk.js.map": "/static/js/2.8d8f2d6b.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.98c04cbc2eedf2f6b4275eb5121a041d.js": "/precache-manifest.98c04cbc2eedf2f6b4275eb5121a041d.js",
+    "precache-manifest.2ba6ae45e743446f4b580517177146b6.js": "/precache-manifest.2ba6ae45e743446f4b580517177146b6.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.c5a3ee5c.chunk.css.map": "/static/css/main.c5a3ee5c.chunk.css.map",
-    "static/js/2.5dbab27d.chunk.js.LICENSE.txt": "/static/js/2.5dbab27d.chunk.js.LICENSE.txt",
-    "static/media/avatar.jpg": "/static/media/avatar.f1d71f77.jpg",
+    "static/css/2.4707e12a.chunk.css.map": "/static/css/2.4707e12a.chunk.css.map",
+    "static/css/main.111dcae4.chunk.css.map": "/static/css/main.111dcae4.chunk.css.map",
+    "static/js/2.8d8f2d6b.chunk.js.LICENSE.txt": "/static/js/2.8d8f2d6b.chunk.js.LICENSE.txt",
+    "static/media/Team1.jpg": "/static/media/Team1.ed3f0d04.jpg",
+    "static/media/Team2.jpeg": "/static/media/Team2.7e131386.jpeg",
+    "static/media/Team3.jpg": "/static/media/Team3.f90b61a8.jpg",
     "static/media/bg2.jpg": "/static/media/bg2.84378183.jpg",
+    "static/media/bg3.jpg": "/static/media/bg3.e76de24b.jpg",
     "static/media/bg5.jpg": "/static/media/bg5.5693a33c.jpg",
     "static/media/christian.jpg": "/static/media/christian.56633ed3.jpg",
     "static/media/kendall.jpg": "/static/media/kendall.e0508cc9.jpg",
@@ -22,8 +27,9 @@
   },
   "entrypoints": [
     "static/js/runtime-main.47788c5d.js",
-    "static/js/2.5dbab27d.chunk.js",
-    "static/css/main.c5a3ee5c.chunk.css",
-    "static/js/main.8f21beea.chunk.js"
+    "static/css/2.4707e12a.chunk.css",
+    "static/js/2.8d8f2d6b.chunk.js",
+    "static/css/main.111dcae4.chunk.css",
+    "static/js/main.a001bef6.chunk.js"
   ]
 }

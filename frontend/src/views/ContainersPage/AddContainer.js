@@ -31,7 +31,7 @@ import Muted from "components/Typography/Muted";
 const useStyles = makeStyles(styles);
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="down" ref={ref} {...props} />;
+  return <Slide direction="up" ref={ref} {...props} />;
 });
 
 Transition.displayName = "Transition";
@@ -46,7 +46,6 @@ export default function AddContainer() {
     medicine: Yup.string().required(),
     endDate: Yup.date().required(),
     morningPills: Yup.number(),
-    noOfPills: Yup.number(),
   });
 
   const handleSubmit = async (info) => {
@@ -75,7 +74,7 @@ export default function AddContainer() {
       startDate: info.startDate,
       endDate: info.endDate,
       routine: routineArray,
-      noOfPills: info.noOfPills,
+      noOfPills: 20,
       isFull: true,
     };
 
@@ -105,6 +104,7 @@ export default function AddContainer() {
                 Add Container
               </Button>
               <Dialog
+                //fullScreen
                 classes={{
                   root: classes.center,
                   paper: classes.modal,
@@ -141,15 +141,14 @@ export default function AddContainer() {
                       patientID: "",
                       containerID: 0,
                       medicine: "",
-                      startDate: Date.now(),
-                      endDate: Date.now(),
+                      startDate: "",
+                      endDate: "",
                       morningTime: "",
                       afternoonTime: "",
                       eveningTime: "",
                       morningPills: 0,
                       afternoonPills: 0,
                       eveningPills: 0,
-                      noOfPills: 0,
                     }}
                     onSubmit={handleSubmit}
                     validationSchema={validationSchema}
@@ -191,7 +190,7 @@ export default function AddContainer() {
                             fullWidth: true,
                           }}
                           inputProps={{
-                            type: "text",
+                            type: "date",
                             onChange: handleChange("startDate"),
                             autoComplete: "off",
                           }}
@@ -203,14 +202,14 @@ export default function AddContainer() {
                             fullWidth: true,
                           }}
                           inputProps={{
-                            type: "text",
+                            type: "date",
                             onChange: handleChange("endDate"),
                             autoComplete: "off",
                           }}
                         />
                         <Muted>Routine Time</Muted>
                         <br />
-                        <Grid container justify="space-between">
+                        <Grid container justify="space-around">
                           <TextField
                             id="time"
                             label="Morining Time"
@@ -301,18 +300,6 @@ export default function AddContainer() {
                           </GridItem>
                         </GridContainer>
 
-                        <CustomInput
-                          labelText="No of Pills..."
-                          id="noOfPills"
-                          formControlProps={{
-                            fullWidth: true,
-                          }}
-                          inputProps={{
-                            type: "text",
-                            onChange: handleChange("noOfPills"),
-                            autoComplete: "off",
-                          }}
-                        />
                         <Button color="danger" onClick={handleSubmit}>
                           Add Container
                         </Button>

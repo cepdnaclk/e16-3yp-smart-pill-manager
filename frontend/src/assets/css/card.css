@@ -1,0 +1,95 @@
+.card-container {
+  border-radius: 10px;
+  border: 0;
+  box-shadow: 0 0 10px gray;
+  display: grid;
+  font-family: "Courier New", Courier, monospace;
+  grid-template-columns: 120px 140px;
+  grid-template-rows: 100px 100px 30px;
+  padding: 10px;
+  width: 340px;
+}
+
+@media screen and (max-width: 411px) {
+  .card-container {
+    width: auto;
+    justify-content: center;
+  }
+}
+
+.card-number {
+  justify-self: center;
+  align-self: center;
+}
+
+.card-number p {
+  color: brown;
+  cursor: pointer;
+  font-size: 80px;
+  font-weight: 600;
+  margin: 0;
+  transition: transform 0.5s;
+}
+
+.card-number p:hover {
+  color: rgb(175, 13, 13);
+  transform: scale(1.2);
+}
+
+.card-title {
+  padding-left: 10px;
+}
+
+.card-title h1,
+h2,
+h3 {
+  font-size: 25px;
+  margin-bottom: 0;
+  overflow: auto hidden;
+}
+
+.card-title p {
+  font-size: 14px;
+  color: rgb(105, 104, 104);
+  margin-top: 5px;
+}
+
+.card-description {
+  grid-column: 1 / -1;
+  margin-left: 10px;
+}
+
+.card-btn {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  box-sizing: unset;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 1px;
+  outline: 0;
+  padding: 0;
+  text-transform: uppercase;
+  transition: transform 0.5s;
+}
+
+.card-btn:hover {
+  transform: scale(1.2);
+}
+
+/* .btn-more {
+  color: dodgerblue;
+} */
+
+.btn-delete {
+  color: tomato;
+}
+
+.card-more {
+  justify-self: start;
+}
+
+.card-delete {
+  justify-self: end;
+  margin-top: 5px;
+  margin-right: 20px;
+}

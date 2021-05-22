@@ -11,11 +11,12 @@ import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
-import profile from "assets/img/faces/christian.jpg";
+import profile from "assets/img/faces/patient.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
+    boxShadow: "0 0 30px #fff,0 0 20px tomato",
   },
   media: {
     height: 0,

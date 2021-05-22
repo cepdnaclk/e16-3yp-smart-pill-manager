@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import AOS from "aos";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -8,9 +9,14 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import CustomCard from "components/MyCard/Card";
 import IconButton from "@material-ui/core/IconButton";
-import { Delete, Check, Close } from "@material-ui/icons";
-import Alert from "@material-ui/lab/Alert";
-import Collapse from "@material-ui/core/Collapse";
+import { Delete } from "@material-ui/icons";
+
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
 
 import Footer from "components/Footer/Footer";
 
@@ -21,6 +27,7 @@ import AddPatient from "./AddPatient";
 import UpdatePatient from "./UpdatePatient";
 import { getPatients, deletePatient } from "../../services/patientService";
 
+AOS.init();
 const useStyles = makeStyles(styles);
 
 export default function PatientsPage(props) {
@@ -66,42 +73,43 @@ export default function PatientsPage(props) {
           <h2>Patients</h2>
         </div>
         <GridContainer>
-          <div style={{ width: "100%" }}>
-            <Collapse in={alertOpen}>
-              <Alert
-                variant="filled"
-                severity="error"
-                action={
-                  <>
-                    <IconButton
-                      style={{ marginRight: 20 }}
-                      aria-label="close"
-                      color="inherit"
-                      size="small"
-                      onClick={() => {
-                        handleDeletePatient();
-                        setAlertOpen(false);
-                      }}
-                    >
-                      <Check fontSize="inherit" />
-                    </IconButton>
-
-                    <IconButton
-                      aria-label="close"
-                      color="inherit"
-                      size="small"
-                      onClick={() => {
-                        setAlertOpen(false);
-                      }}
-                    >
-                      <Close fontSize="inherit" />
-                    </IconButton>
-                  </>
-                }
-              >
-                Do you want to delete Patient?
-              </Alert>
-            </Collapse>
+          <div>
+            <Dialog
+              open={alertOpen}
+              //onClose={handleClose}
+              aria-labelledby="alert-dialog-title"
+              aria-describedby="alert-dialog-description"
+            >
+              <DialogTitle id="alert-dialog-title">
+                {"Do you want to delete this patient?"}
+              </DialogTitle>
+              <DialogContent>
+                <DialogContentText id="alert-dialog-description">
+                  If you click the accept button,this patient and the allocated
+                  containers for him will be deleted.
+                </DialogContentText>
+              </DialogContent>
+              <DialogActions>
+                <Button
+                  onClick={() => {
+                    setAlertOpen(false);
+                  }}
+                  color="primary"
+                >
+                  Decline
+                </Button>
+                <Button
+                  onClick={() => {
+                    handleDeletePatient();
+                    setAlertOpen(false);
+                  }}
+                  color="primary"
+                  autoFocus
+                >
+                  Accept
+                </Button>
+              </DialogActions>
+            </Dialog>
           </div>
           <AddPatient />
           {patients.map((p) => (
@@ -112,7 +120,12 @@ export default function PatientsPage(props) {
               xs={12}
               md={4}
             >
-              <CustomCard name={p.name} age={p.age} letter={p.name[0]}>
+              <CustomCard
+                name={p.name}
+                age={p.age}
+                letter={p.name[0]}
+                data-aos="zoom-in"
+              >
                 <UpdatePatient patient={p} />
                 <IconButton
                   color="secondary"
@@ -125,7 +138,7 @@ export default function PatientsPage(props) {
           ))}
         </GridContainer>
       </div>
-      <Footer />
+      {patients.length >= 1 && <Footer />}
     </div>
   );
 }
