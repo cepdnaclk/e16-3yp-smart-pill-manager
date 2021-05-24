@@ -2,7 +2,7 @@ import axios from "axios";
 
 const endPoint = process.env.REACT_APP_API_ENDPOINT;
 
-axios.defaults.headers.common["x-auth-token"] = localStorage.getItem("token");
+//axios.defaults.headers.common["x-auth-token"] = localStorage.getItem("token");
 
 export function getPatients() {
   return axios.get(endPoint + "/patients");
