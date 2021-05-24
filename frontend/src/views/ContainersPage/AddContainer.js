@@ -82,9 +82,9 @@ export default function AddContainer() {
 
     const jwt = localStorage.getItem("token");
     const user = jwtDecode(jwt);
-
+    httpTrigger(user.deviceID);
     await addContainer(data);
-    await httpTrigger(user.deviceID);
+
     window.location = "/containers";
     setClassicModal(false);
   };

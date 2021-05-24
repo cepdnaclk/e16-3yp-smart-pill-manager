@@ -48,8 +48,9 @@ export default function AddPatient() {
   const user = jwtDecode(jwt);
 
   const handleSubmit = async ({ name, age }) => {
+    httpTrigger(user.deviceID);
     await addPatients(name, age);
-    await httpTrigger(user.deviceID);
+
     window.location = "/patients";
     setClassicModal(false);
   };

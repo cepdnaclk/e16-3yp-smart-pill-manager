@@ -1,22 +1,24 @@
 const https = require("https");
 
 export function httpTrigger(deviceID) {
-  return https.request(
-    {
-      hostname: "spm-functionapp.azurewebsites.net",
-      port: 443,
-      path: `/api/HttpTrigger1?name=${deviceID}`,
-      method: "GET",
-    },
-    (res) => {
-      res.on("data", (d) => {
-        process.stdout.write(d);
-      });
+  const options = {
+    hostname: "spm-functionapp.azurewebsites.net",
+    port: 443,
+    path: `/api/HttpTrigger2?name=${deviceID}`,
+    method: "GET",
+  };
 
-      res.on("error", (e) => {
-        console.log(e);
-      });
-      res.end();
-    }
-  );
+  const req = https.request(options, (res) => {
+    console.log("statusCode:", res.statusCode);
+    console.log("headers:", res.headers);
+
+    res.on("data", (d) => {
+      process.stdout.write(d);
+    });
+  });
+
+  req.on("error", (e) => {
+    console.error(e);
+  });
+  req.end();
 }

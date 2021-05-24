@@ -72,5 +72,5 @@
     ],
     "development": []
   },
-  "proxy": "https://spm-functionapp.azurewebsites.net/api/HttpTrigger1?"
+  "proxy": "https://spm-functionapp.azurewebsites.net/api/HttpTrigger2?"
 }
