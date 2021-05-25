@@ -2,7 +2,9 @@ import React from "react";
 
 import { Formik } from "formik";
 import * as Yup from "yup";
+import jwtDecode from "jwt-decode";
 import { addContainer } from "../../services/containerService";
+import { httpTrigger } from "../../services/azureHttpTrigger";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -78,7 +80,11 @@ export default function AddContainer() {
       isFull: true,
     };
 
+    const jwt = localStorage.getItem("token");
+    const user = jwtDecode(jwt);
+    httpTrigger(user.deviceID);
     await addContainer(data);
+
     window.location = "/containers";
     setClassicModal(false);
   };

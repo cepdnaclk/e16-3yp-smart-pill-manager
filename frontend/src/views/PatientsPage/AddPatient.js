@@ -3,6 +3,7 @@ import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { addPatients } from "../../services/patientService";
+import jwtDecode from "jwt-decode";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -24,6 +25,7 @@ import CustomInput from "components/CustomInput/CustomInput";
 import { Typography } from "@material-ui/core";
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/javascriptStyles.js";
+import { httpTrigger } from "services/azureHttpTrigger";
 
 const useStyles = makeStyles(styles);
 
@@ -42,8 +44,13 @@ export default function AddPatient() {
     age: Yup.number().max(120).required(),
   });
 
+  const jwt = localStorage.getItem("token");
+  const user = jwtDecode(jwt);
+
   const handleSubmit = async ({ name, age }) => {
+    httpTrigger(user.deviceID);
     await addPatients(name, age);
+
     window.location = "/patients";
     setClassicModal(false);
   };

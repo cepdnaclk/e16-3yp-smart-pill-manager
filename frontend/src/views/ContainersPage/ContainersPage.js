@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import { httpTrigger } from "../../services/azureHttpTrigger";
+import jwtDecode from "jwt-decode";
 import {
   getContainers,
   deleteContainer,
@@ -37,8 +39,12 @@ export default function ContainersPage(props) {
     getC();
   }, []);
 
+  const jwt = localStorage.getItem("token");
+  const user = jwtDecode(jwt);
+
   const handleDelete = async (id) => {
     await deleteContainer(id);
+    await httpTrigger(user.deviceID);
     const updateContainers = containers;
     const containersNew = updateContainers.filter((c) => c._id !== id);
     setContainers(containersNew);

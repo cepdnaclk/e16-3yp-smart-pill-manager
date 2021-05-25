@@ -71,5 +71,6 @@
       "not op_mini all"
     ],
     "development": []
-  }
+  },
+  "proxy": "https://spm-functionapp.azurewebsites.net/api/HttpTrigger2?"
 }

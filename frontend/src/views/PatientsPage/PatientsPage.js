@@ -26,6 +26,8 @@ import image from "assets/img/bg2.jpg";
 import AddPatient from "./AddPatient";
 import UpdatePatient from "./UpdatePatient";
 import { getPatients, deletePatient } from "../../services/patientService";
+import { httpTrigger } from "../../services/azureHttpTrigger";
+import jwtDecode from "jwt-decode";
 
 AOS.init();
 const useStyles = makeStyles(styles);
@@ -47,6 +49,9 @@ export default function PatientsPage(props) {
 
   const handleDeletePatient = async () => {
     await deletePatient(patientId);
+    const jwt = localStorage.getItem("token");
+    const user = jwtDecode(jwt);
+    httpTrigger(user.deviceID);
     const updatePatients = patients;
     const patientsNew = updatePatients.filter((p) => p._id !== patientId);
     setPatients(patientsNew);
