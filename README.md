@@ -107,16 +107,20 @@ by this proposed product,
 
 ![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Screenshot_42.png) 
 
-## CAD Designs
-<!-- ![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Screenshot_38.png)  
+## CAD Design
 
-![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Screenshot_39.png) 
-
-![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Screenshot_40.png)   -->
+Watch in Youtube
 
 [![IMAGE_ALT](https://img.youtube.com/vi/DxrBc5caVds/0.jpg)](https://www.youtube.com/watch?v=DxrBc5caVds)
 <!-- https://youtu.be/DxrBc5caVds -->
 
+### Rendered CAD Design
+
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Screenshot_38.png)  
+
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Screenshot_39.png) 
+
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Screenshot_40.png)  
 
 ## Cloud Deployment Structure 
 
@@ -139,6 +143,10 @@ by this proposed product,
 
 for further details
 	https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Testing/TestReport.md
+	
+## Product video
+
+[![IMAGE_ALT](https://img.youtube.com/vi/LJzsrwh-eJ0/0.jpg)](https://www.youtube.com/watch?v=LJzsrwh-eJ0)
 
 ## Detailed budget
  ![image](https://user-images.githubusercontent.com/62101791/99028989-4f8f1a80-2597-11eb-8458-ebadf6f5ae63.png)
