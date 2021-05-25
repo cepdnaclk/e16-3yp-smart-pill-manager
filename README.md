@@ -10,6 +10,10 @@
 
 >[Nuwantha B.L.A](https://github.com/arunanuwantha97) **E/16/261**
 
+## Go to Our WEB-APP
+
+###	https://www.smartpillmanager.live
+	
 ## Product design     
 
 ![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Design_image.png)  
@@ -96,9 +100,34 @@ by this proposed product,
 
 ## Hardware Design
  ![image](https://user-images.githubusercontent.com/62101791/98899693-193d9680-24d6-11eb-8de5-6e527fdf8a40.png)
+ 
+## PCB Design
 
-## Cloud Deployment Structure Frontend
-![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/AWS_webapp_cloud_deploy.png)
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Screenshot_41.png) 
+
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Screenshot_42.png) 
+
+## CAD Designs
+<!-- ![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Screenshot_38.png)  
+
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Screenshot_39.png) 
+
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Screenshot_40.png)   -->
+
+[![IMAGE_ALT](https://img.youtube.com/vi/DxrBc5caVds/0.jpg)](https://www.youtube.com/watch?v=DxrBc5caVds)
+<!-- https://youtu.be/DxrBc5caVds -->
+
+
+## Cloud Deployment Structure 
+
+### Frontend & Backend
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Screenshot_37.png) 
+
+### Frontend to Device Communication
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Screenshot_36.png)
+
+### Device to user Communication
+![alt text](https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Images/Screenshot_44.png) 
 
 ## Testing
 - Penatration Testing
@@ -109,7 +138,7 @@ by this proposed product,
 - Frontend user abnormal activity Testing
 
 for further details
-
+	https://github.com/cepdnaclk/e16-3yp-smart-pill-manager/blob/main/Testing/TestReport.md
 
 ## Detailed budget
  ![image](https://user-images.githubusercontent.com/62101791/99028989-4f8f1a80-2597-11eb-8458-ebadf6f5ae63.png)
@@ -120,13 +149,15 @@ for further details
 
 ## GitHub Repo Link
 
-exciting things will be dropping soon!! keep in touch
-
 You can find our blog in
    https://smart-pill-manager.blogspot.com
 	
 Our Project Planning Workspace
    https://lucid.app/invitations/accept/3a6530d0-3f07-40d5-863b-07752b5b9d80
-   
-Thank you!	
 
+Contact us
+	Email: e16203@eng.pdn.ac.lk , e16061@eng.pdn.ac.lk  , e16261@eng.pdn.ac.lk
+	
+This will not be the end! 
+Thank you!	
+SPM_Team
