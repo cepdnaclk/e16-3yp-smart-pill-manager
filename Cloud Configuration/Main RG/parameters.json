@@ -1,0 +1,81 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sites_SPM_functionapp_name": {
+            "value": null
+        },
+        "virtualMachines_spm_backend_name": {
+            "value": null
+        },
+        "frontdoors_smartpillmanager_name": {
+            "value": null
+        },
+        "virtualMachines_spm_frontend_name": {
+            "value": null
+        },
+        "serverfarms_ASP_forLearning_8b2d_name": {
+            "value": null
+        },
+        "serverfarms_ASP_forLearning_9ba4_name": {
+            "value": null
+        },
+        "dnszones_smartpillmanager_live_name": {
+            "value": null
+        },
+        "components_SPM_getdata_function_name": {
+            "value": null
+        },
+        "networkInterfaces_spm_backend140_name": {
+            "value": null
+        },
+        "networkInterfaces_spm_frontend92_name": {
+            "value": null
+        },
+        "publicIPAddresses_spm_backend_ip_name": {
+            "value": null
+        },
+        "sshPublicKeys_spm_frontend_keypair_name": {
+            "value": null
+        },
+        "publicIPAddresses_spmfrontendip755_name": {
+            "value": null
+        },
+        "virtualNetworks_SPM_Virtual_Network_name": {
+            "value": null
+        },
+        "networkSecurityGroups_spm_backend_nsg_name": {
+            "value": null
+        },
+        "networkSecurityGroups_spmfrontendnsg249_name": {
+            "value": null
+        },
+        "frontdoorwebapplicationfirewallpolicies_SPMpolicy_name": {
+            "value": null
+        },
+        "actionGroups_Application_Insights_Smart_Detection_name": {
+            "value": null
+        },
+        "privateDnsZones_privatelink_mongo_cosmos_azure_com_name": {
+            "value": null
+        },
+        "dataCollectionRules_Microsoft_VMInsights_Health_centralus_name": {
+            "value": null
+        },
+        "disks_SPM_Frontend_OsDisk_1_2eb1c20648844fa0bd46782aaa401a12_name": {
+            "value": null
+        },
+        "smartdetectoralertrules_failure_anomalies___spm_getdata_function_name": {
+            "value": null
+        },
+        "smartdetectoralertrules_failure_anomalies___spm_databse_trigger_function_name": {
+            "value": null
+        },
+        "components_spm_databse_trigger_function_externalid": {
+            "value": null
+        },
+        "workspaces_defaultworkspace_b90d7ede_8d91_4884_96d9_122140ad1297_cus_externalid": {
+            "value": null
+        }
+    }
+}
