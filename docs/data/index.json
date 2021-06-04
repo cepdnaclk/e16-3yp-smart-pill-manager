@@ -1,0 +1,33 @@
+{
+    "title": "Smart pill manager",
+    "team": [{
+            "name": "Chandula J.P.D.M.",
+            "email": "e16061@eng.pdn.ac.lk",
+            "eNumber": "E/16/061",
+            "github_profile": "https://github.com/Chandula-JPDM",
+            "linkedin_profile": "https://www.linkedin.com/in/j-p-d-m-chandula-8569b3158/"
+        },
+        {
+            "name": "Nuwantha B.L.A",
+            "email": "e16261@eng.pdn.ac.lk",
+            "eNumber": "E/16/261",
+            "github_profile": "https://github.com/arunanuwantha97",
+            "linkedin_profile": "https://www.linkedin.com/in/aruna-nuwantha"
+        },
+        {
+            "name": "Lakshan S.A.I",
+            "email": "e16203@eng.pdn.ac.lk",
+            "eNumber": "E/16/203",
+            "github_profile": "https://github.com/IsuruLakshan97",
+            "linkedin_profile": "https://www.linkedin.com/in/isurulakshan/"
+        }
+    ],
+    "supervisors": [{
+            "name": "Dr. Isuru Nawinna"
+        },
+        {
+            "name": "Mr. Ziyan Marikkar"
+        }
+    ],
+    "tags": ["Web", "Embedded Systems"]
+}
