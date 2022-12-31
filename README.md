@@ -9,10 +9,6 @@
 >[Lakshan S.A.I](https://github.com/IsuruLakshan97) **E/16/203**
 
 >[Nuwantha B.L.A](https://github.com/arunanuwantha97) **E/16/261**
-
-## Go to Our WEB-APP
-
-###	https://www.smartpillmanager.live
 	
 ## Product design     
 
